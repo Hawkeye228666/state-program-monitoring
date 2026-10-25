@@ -1,0 +1,92 @@
+{
+  "total": 6792,
+  "programs": 2,
+  "indicators": 6,
+  "territories": 172,
+  "periods": 20,
+  "per_file": {
+    "43512": 1304,
+    "43537": 860,
+    "43563": 1024,
+    "43586": 1045,
+    "43587": 1333,
+    "44198": 1226
+  },
+  "http_django_client": {
+    "/": {
+      "status": 200,
+      "bytes": 5220
+    },
+    "/programs/housing/": {
+      "status": 200,
+      "bytes": 10807
+    },
+    "/programs/science/": {
+      "status": 200,
+      "bytes": 11345
+    },
+    "/upload/": {
+      "status": 200,
+      "bytes": 2573
+    },
+    "/history/": {
+      "status": 200,
+      "bytes": 2914
+    },
+    "/explore/?program=housing&mode=one&indicator=43537&regions=643": {
+      "status": 200,
+      "bytes": 49251
+    }
+  },
+  "housing_russia": [
+    {
+      "period": "2012",
+      "value": "65.74",
+      "raw": "65,74"
+    },
+    {
+      "period": "2013",
+      "value": "70.5",
+      "raw": "70,5"
+    },
+    {
+      "period": "2014",
+      "value": "84.2",
+      "raw": "84,2"
+    },
+    {
+      "period": "2015",
+      "value": "85.3",
+      "raw": "85,3"
+    },
+    {
+      "period": "2016",
+      "value": "80.2",
+      "raw": "80,2"
+    },
+    {
+      "period": "2017",
+      "value": "79.2",
+      "raw": "79,2"
+    },
+    {
+      "period": "2018",
+      "value": "75.7",
+      "raw": "75,7"
+    },
+    {
+      "period": "2019",
+      "value": "82",
+      "raw": "82"
+    },
+    {
+      "period": "2020",
+      "value": "82.2",
+      "raw": "82,2"
+    }
+  ],
+  "materials_sha256": {
+    "Задания-2026 доп.docx": "a4616bf39991ec99f5c575b4e9f8b46a1d44ad152b1bcf923b17bdf0b13d1ce4",
+    "Материал для задания 3.zip": "fd8ac1a1ae16a61be43287fba6e685b95f78268b6c5de45b7b87edb3902b46eb"
+  }
+}

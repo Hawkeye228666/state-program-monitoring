@@ -1,0 +1,42 @@
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+Found 20 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: messages, staticfiles
+  Apply all migrations: contenttypes, monitor, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying monitor.0001_initial... OK
+test_additional_dimension_filter (monitor.tests.FullProjectTests.test_additional_dimension_filter) ... ok
+test_all_database_values_against_independent_xml (monitor.tests.FullProjectTests.test_all_database_values_against_independent_xml) ... ok
+test_empty_database_is_usable (monitor.tests.FullProjectTests.test_empty_database_is_usable) ... ok
+test_empty_results_and_chart_guards (monitor.tests.FullProjectTests.test_empty_results_and_chart_guards) ... ok
+test_idempotent_all_files (monitor.tests.FullProjectTests.test_idempotent_all_files) ... ok
+test_missing_stored_without_zero (monitor.tests.FullProjectTests.test_missing_stored_without_zero) ... ok
+test_multiple_dimension_values_remain_separate (monitor.tests.FullProjectTests.test_multiple_dimension_values_remain_separate) ... ok
+test_one_and_all_modes (monitor.tests.FullProjectTests.test_one_and_all_modes) ... ok
+test_pages_filters_and_numeric_sort (monitor.tests.FullProjectTests.test_pages_filters_and_numeric_sort) ... ok
+test_region_codes_and_levels (monitor.tests.FullProjectTests.test_region_codes_and_levels) ... ok
+test_table_csv_json_chart_agreement_and_full_export (monitor.tests.FullProjectTests.test_table_csv_json_chart_agreement_and_full_export) ... ok
+test_update_rule_and_transaction_rollback (monitor.tests.FullProjectTests.test_update_rule_and_transaction_rollback) ... ok
+test_upload_preview_confirm_and_double_confirm (monitor.tests.FullProjectTests.test_upload_preview_confirm_and_double_confirm) ... ok
+test_common_nested_and_multiple_zip (monitor.tests.ParserSafetyTests.test_common_nested_and_multiple_zip) ... ok
+test_conflicting_duplicates_rejected (monitor.tests.ParserSafetyTests.test_conflicting_duplicates_rejected) ... ok
+test_corrupt_unsupported_and_xxe (monitor.tests.ParserSafetyTests.test_corrupt_unsupported_and_xxe) ... ok
+test_each_provided_file_and_independent_counts (monitor.tests.ParserSafetyTests.test_each_provided_file_and_independent_counts) ... ok
+test_missing_and_status_and_high_precision (monitor.tests.ParserSafetyTests.test_missing_and_status_and_high_precision) ... ok
+test_quarter_and_ownership_are_preserved (monitor.tests.ParserSafetyTests.test_quarter_and_ownership_are_preserved) ... ok
+test_zip_paths_depth_and_limits (monitor.tests.ParserSafetyTests.test_zip_paths_depth_and_limits) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 6.536s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+  Applying sessions.0001_initial... OK
+System check identified no issues (0 silenced).
