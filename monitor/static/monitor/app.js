@@ -1,0 +1,4 @@
+document.querySelector('#region-search')?.addEventListener('input',e=>{let q=e.target.value.toLocaleLowerCase('ru');document.querySelectorAll('#region-list label').forEach(l=>l.hidden=!l.textContent.toLocaleLowerCase('ru').includes(q));});
+document.querySelectorAll('[data-clear]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll(`input[name="${b.dataset.clear}"]`).forEach(x=>x.checked=false);}));
+['indicator','mode'].forEach(id=>document.getElementById(id)?.addEventListener('change',()=>{document.querySelectorAll('.dimension-select option').forEach(o=>o.selected=false);}));
+document.querySelectorAll('form[method="post"]').forEach(f=>f.addEventListener('submit',()=>{f.querySelectorAll('button[type="submit"],button:not([type])').forEach(b=>{b.disabled=true;b.textContent='Обработка…';});}));

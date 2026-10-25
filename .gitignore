@@ -1,0 +1,16 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+staticfiles/
+data/staging/
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+.pytest_cache/
+work/
+
+.venv-*/
+.env.*
+.localdeps/

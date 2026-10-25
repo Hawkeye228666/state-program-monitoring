@@ -1,0 +1,7 @@
+{
+  "sqlite_integrity": "ok",
+  "observations": 6792,
+  "rebuilt_database_exact_match": true,
+  "original_materials_sha256_match": true,
+  "no_environment_or_cache_included": true
+}

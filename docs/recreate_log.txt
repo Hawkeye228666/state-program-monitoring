@@ -1,0 +1,21 @@
+Operations to perform:
+  Apply all migrations: contenttypes, monitor, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying monitor.0001_initial... OK
+  Applying sessions.0001_initial... OK
+{'file': 'data_43512.sdmx', 'file_id': '43512', 'header_id': '260375071', 'dataset_id': '9420013', 'program': 'housing', 'added': 1304, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'file': 'data_43537.sdmx', 'file_id': '43537', 'header_id': '262658965', 'dataset_id': '9420036', 'program': 'housing', 'added': 860, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'file': 'data_43563.sdmx', 'file_id': '43563', 'header_id': '264894434', 'dataset_id': '9420058', 'program': 'housing', 'added': 1024, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'file': 'data_43586.sdmx', 'file_id': '43586', 'header_id': '266501725', 'dataset_id': '9420043', 'program': 'science', 'added': 1045, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'file': 'data_43587.sdmx', 'file_id': '43587', 'header_id': '266504719', 'dataset_id': '9420042', 'program': 'science', 'added': 1333, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'file': 'data_44198.sdmx', 'file_id': '44198', 'header_id': '274459040', 'dataset_id': '9430020', 'program': 'science', 'added': 1226, 'updated': 0, 'skipped': 0, 'errors': 0}
+Добавлено: 6792; обновлено: 0; пропущено: 0; ошибок: 0
+{'file': 'data_43512.sdmx', 'file_id': '43512', 'header_id': '260375071', 'dataset_id': '9420013', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 1304, 'errors': 0}
+{'file': 'data_43537.sdmx', 'file_id': '43537', 'header_id': '262658965', 'dataset_id': '9420036', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 860, 'errors': 0}
+{'file': 'data_43563.sdmx', 'file_id': '43563', 'header_id': '264894434', 'dataset_id': '9420058', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 1024, 'errors': 0}
+{'file': 'data_43586.sdmx', 'file_id': '43586', 'header_id': '266501725', 'dataset_id': '9420043', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1045, 'errors': 0}
+{'file': 'data_43587.sdmx', 'file_id': '43587', 'header_id': '266504719', 'dataset_id': '9420042', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1333, 'errors': 0}
+{'file': 'data_44198.sdmx', 'file_id': '44198', 'header_id': '274459040', 'dataset_id': '9430020', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1226, 'errors': 0}
+Добавлено: 0; обновлено: 0; пропущено: 6792; ошибок: 0
