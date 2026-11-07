@@ -70,6 +70,23 @@ jobs:
           curl --fail --silent --show-error --output /dev/null http://127.0.0.1:8000/static/monitor/app.css
           docker compose logs --no-color app > app.log
           python -c "from pathlib import Path; assert 'Control server error' not in Path('app.log').read_text()"
+      - name: Recover a new ZIP environment with an existing PostgreSQL volume
+        run: |
+          docker compose exec -T app python manage.py db_fingerprint --check-files > before-credentials.json
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          values=dict(line.split('=',1) for line in Path('.env').read_text().splitlines() if '=' in line and not line.startswith('#'))
+          Path('.env').unlink()
+          subprocess.run(['python','scripts/create_env.py'],check=True)
+          subprocess.run(['pwsh','-NoProfile','-File','scripts/start.ps1','-NoBrowser','-SkipAdmin'],check=True)
+          # The old app password must stop working after synchronization.
+          result=subprocess.run(['docker','compose','exec','-T','-e','PGPASSWORD='+values['POSTGRES_APP_PASSWORD'],'db','psql','-h','127.0.0.1','-U','monitor_app','-d','monitor','-c','SELECT 1'],capture_output=True)
+          assert result.returncode != 0, 'Old app password still accepted'
+          PY
+          docker compose exec -T app python manage.py db_fingerprint --check-files > after-credentials.json
+          diff before-credentials.json after-credentials.json
+          docker compose exec -T db psql -U postgres -d monitor -tAc "SELECT NOT rolsuper AND NOT rolcreatedb AND NOT rolcreaterole FROM pg_roles WHERE rolname='monitor_app'" | grep -x t
       - name: Explicit first setup and idempotent source loading
         run: |
           docker compose exec -T app python manage.py bootstrap_postgres --load-data

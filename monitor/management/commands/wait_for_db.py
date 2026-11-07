@@ -16,8 +16,11 @@ class Command(BaseCommand):
                         raise OperationalError('Unexpected readiness result')
                 self.stdout.write('Database ready (authenticated SELECT 1).')
                 return
-            except OperationalError:
+            except OperationalError as error:
                 connections['default'].close()
                 if time.monotonic() >= deadline:
-                    raise CommandError('Database not ready before timeout; check credentials and database logs.')
+                    detail = str(error).lower()
+                    if 'password authentication failed' in detail:
+                        raise CommandError('PostgreSQL rejected the application password. Run run_windows.bat to synchronize the app role with .env; keep the existing database volume.') from None
+                    raise CommandError('Database not ready before timeout; check database logs and POSTGRES_HOST/PORT. Run the launcher for credential setup.') from None
                 time.sleep(1)

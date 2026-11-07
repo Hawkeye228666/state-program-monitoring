@@ -61,6 +61,9 @@ with tempfile.TemporaryDirectory(prefix='monitor setup ') as temp:
         assert (folder/'.env').is_file()
         calls=Path(env['MONITOR_DOCKER_LOG']).read_text()
         assert 'compose config --quiet' in calls
+        assert 'compose up -d --wait db' in calls
+        assert 'compose exec -T db sh /docker-entrypoint-initdb.d/10-app.sh' in calls
+        assert calls.index('compose up -d --wait db') < calls.index('compose exec -T db sh') < calls.index('compose up --build -d --wait app')
         assert 'compose up --build -d --wait app' in calls
         assert 'bootstrap_postgres --load-if-empty' in calls
 print('Startup checks passed: fresh ZIP, spaces, distinct secrets, no secret output, repeat and incomplete .env.')
