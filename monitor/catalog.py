@@ -5,7 +5,7 @@ PROGRAMS = [
 ]
 def seed_programs():
     from .models import Program
-    for p in PROGRAMS: Program.objects.update_or_create(slug=p['slug'],defaults={k:v for k,v in p.items() if k!='slug'})
+    for p in PROGRAMS: Program.objects.get_or_create(slug=p['slug'],defaults={k:v for k,v in p.items() if k!='slug'})
 
 def territory_kind(code,name):
     if code=='643': return 'country'

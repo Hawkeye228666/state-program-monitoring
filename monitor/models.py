@@ -1,6 +1,8 @@
 import json
 from decimal import Decimal
+from django.conf import settings
 from django.db import models
+from .fields import ExactNumericTextField
 
 class Program(models.Model):
     slug = models.SlugField(unique=True)
@@ -62,6 +64,7 @@ class SourceFile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
 class ImportRun(models.Model):
+    actor = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name="import_runs")
     created = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20,default='running')
     filenames = models.JSONField(default=list)
@@ -80,8 +83,8 @@ class Observation(models.Model):
     dimension_key = models.CharField(max_length=64)
     dimensions = models.JSONField(default=dict)
     dimension_labels = models.JSONField(default=dict)
-    # Точное десятичное представление в TEXT: SQLite NUMERIC может преобразовать Decimal в float.
-    numeric_text = models.TextField(null=True,blank=True)
+    # PostgreSQL NUMERIC; SQLite TEXT сохраняет точность без преобразования в float.
+    numeric_text = ExactNumericTextField(null=True,blank=True)
     raw_value = models.TextField(blank=True)
     status = models.JSONField(default=dict)
     attributes = models.JSONField(default=dict)

@@ -1,5 +1,9 @@
-Django==5.2.13
+Django==5.2.19
 defusedxml==0.7.1
 asgiref==3.13.0
 sqlparse==0.6.0
 tzdata==2026.5
+whitenoise==6.12.0
+psycopg[binary]==3.3.8
+gunicorn==26.2.0; platform_system != "Windows"
+packaging==26.0

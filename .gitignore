@@ -14,3 +14,9 @@ work/
 .venv-*/
 .env.*
 .localdeps/
+
+!.env.example
+backups/
+transfer/
+*.dump
+*.bak

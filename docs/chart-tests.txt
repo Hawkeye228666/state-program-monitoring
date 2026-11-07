@@ -1,0 +1,54 @@
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+Found 16 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: messages, staticfiles
+  Apply all migrations: admin, auth, contenttypes, monitor, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying monitor.0001_initial... OK
+  Applying monitor.0002_exact_numeric... OK
+test_authenticated_html_json_csv_and_new_chart_payload_agree (monitor.test_visualizations.RealDataChartSelectionTests.test_authenticated_html_json_csv_and_new_chart_payload_agree) ... ok
+test_real_boxplot_contains_only_shared_filtered_subjects (monitor.test_visualizations.RealDataChartSelectionTests.test_real_boxplot_contains_only_shared_filtered_subjects) ... ok
+test_real_quarters_delta_and_whole_filtered_dataset (monitor.test_visualizations.RealDataChartSelectionTests.test_real_quarters_delta_and_whole_filtered_dataset) ... ok
+test_real_scatter_pairs_are_exact_filtered_observations (monitor.test_visualizations.RealDataChartSelectionTests.test_real_scatter_pairs_are_exact_filtered_observations) ... ok
+test_all_empty_charts_explain_absence (monitor.test_visualizations.ChartArithmeticTests.test_all_empty_charts_explain_absence) ... ok
+test_boxplot_r7_quartiles_whiskers_outlier_and_count (monitor.test_visualizations.ChartArithmeticTests.test_boxplot_r7_quartiles_whiskers_outlier_and_count) ... ok
+test_boxplot_zero_and_missing_and_constant_values (monitor.test_visualizations.ChartArithmeticTests.test_boxplot_zero_and_missing_and_constant_values) ... ok
+test_dumbbell_exact_percentage_points_and_missing_not_zero (monitor.test_visualizations.ChartArithmeticTests.test_dumbbell_exact_percentage_points_and_missing_not_zero) ... ok
+test_dumbbell_periods_must_be_in_table_and_match_period_type (monitor.test_visualizations.ChartArithmeticTests.test_dumbbell_periods_must_be_in_table_and_match_period_type) ... ok
+test_dumbbell_preserves_quarters_and_source_ownership_label (monitor.test_visualizations.ChartArithmeticTests.test_dumbbell_preserves_quarters_and_source_ownership_label) ... ok
+test_duplicate_observations_never_get_averaged (monitor.test_visualizations.ChartArithmeticTests.test_duplicate_observations_never_get_averaged) ... ok
+test_large_precision_is_preserved_and_unrenderable_exponent_is_explained (monitor.test_visualizations.ChartArithmeticTests.test_large_precision_is_preserved_and_unrenderable_exponent_is_explained) ... ok
+test_level_and_ownership_cohorts_are_not_mixed (monitor.test_visualizations.ChartArithmeticTests.test_level_and_ownership_cohorts_are_not_mixed) ... ok
+test_scatter_matches_period_territory_dimensions_but_keeps_axis_units (monitor.test_visualizations.ChartArithmeticTests.test_scatter_matches_period_territory_dimensions_but_keeps_axis_units) ... ok
+test_scatter_rejects_incompatible_extra_dimensions_and_missing_axis_period (monitor.test_visualizations.ChartArithmeticTests.test_scatter_rejects_incompatible_extra_dimensions_and_missing_axis_period) ... ok
+test_scatter_requires_two_paired_numeric_territories (monitor.test_visualizations.ChartArithmeticTests.test_scatter_requires_two_paired_numeric_territories) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 2.056s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+
+  Applying sessions.0001_initial... OK
+System check identified no issues (0 silenced).

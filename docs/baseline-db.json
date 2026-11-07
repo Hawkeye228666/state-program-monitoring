@@ -1,0 +1,25 @@
+{
+  "tables": {
+    "django_content_type": 11,
+    "django_migrations": 4,
+    "django_session": 0,
+    "monitor_dimension": 13,
+    "monitor_dimensionvalue": 18,
+    "monitor_importrun": 1,
+    "monitor_indicator": 6,
+    "monitor_observation": 6792,
+    "monitor_period": 20,
+    "monitor_program": 2,
+    "monitor_sourcefile": 6,
+    "monitor_territory": 172,
+    "sqlite_sequence": 11
+  },
+  "integrity": [
+    [
+      "ok"
+    ]
+  ],
+  "foreign_keys": [],
+  "backup": "C:\\Users\\Genus\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-c\\work\\baseline-backup.sqlite3",
+  "sha256": "7f18901e2cef1b8d77ec58df82c4947edb7080d900c10b80e35a7c5ecbda33ac"
+}
