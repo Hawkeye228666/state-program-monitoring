@@ -23,13 +23,13 @@ def main():
             template = template.rstrip('\n') + '\n' + key + '=' + token + '\n'
         changed = True
     if not changed:
-        print('.env уже настроен. Существующие секреты сохранены.')
+        print('.env already configured; existing secrets preserved.')
         return
     flags = os.O_WRONLY | (os.O_TRUNC if exists else os.O_CREAT | os.O_EXCL)
     descriptor = os.open(target, flags, 0o600)
     with os.fdopen(descriptor, 'w', encoding='utf-8', newline='\n') as output:
         output.write(template)
-    print('.env настроен. Непустые секреты сохранены; недостающие сгенерированы. Значения не выводятся.')
+    print('.env configured; existing secrets preserved, missing values generated. Keep this file.')
 
 
 if __name__ == '__main__':
