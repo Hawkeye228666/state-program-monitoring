@@ -2,6 +2,17 @@
 
 Единственная СУБД во всех окружениях — PostgreSQL17. Приложение Django5.2/Gunicorn/WhiteNoise. В Git нет рабочей БД, пользователей, дампов или секретов. Исходники:6неизменённых SDMX и оригинальные материалы. Все программы, фильтры, ОКФС/кварталы, графики, CSV/API и роли сохранены.
 
+## Получение текущей версии
+
+Пока PR2 не объединён, клонируйте рабочую ветку явно:
+
+```text
+git clone --branch feature/postgres-okfs-analytics https://github.com/Hawkeye228666/state-program-monitoring.git
+cd state-program-monitoring
+```
+
+Либо скачайте ZIP именно этой ветки. В основную ветку автоматического слияния нет.
+
 ## Первый запуск Windows и Linux
 
 Нужны Docker Engine/Desktop с Linux-контейнерами, Compose v2 и Python3.12+ для генератора окружения. Выполняйте из корня скачанного проекта:
