@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.bat -text
+*.zip binary
+*.pptx binary
+*.sqlite3 binary
+*.png binary
+*.sdmx binary
+*.xml binary
+*.docx binary
+*.log -whitespace

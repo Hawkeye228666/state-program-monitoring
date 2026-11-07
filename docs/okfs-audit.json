@@ -1,0 +1,259 @@
+{
+  "archive": "Материал для задания 3.zip",
+  "archive_sha256": "fd8ac1a1ae16a61be43287fba6e685b95f78268b6c5de45b7b87edb3902b46eb",
+  "files": [
+    {
+      "file": "data_43512.sdmx",
+      "file_id": "43512",
+      "sha256": "da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552",
+      "observations": 1304,
+      "declared_dimensions": [
+        "s_OKATO"
+      ],
+      "okfs_present": false,
+      "codelist": {},
+      "codes_in_observations": {},
+      "unused_codes": [],
+      "years": {
+        "2013": 94,
+        "2014": 96,
+        "2015": 96,
+        "2016": 95,
+        "2017": 95,
+        "2018": 96,
+        "2019": 95,
+        "2020": 160,
+        "2021": 158,
+        "2022": 160,
+        "2023": 159
+      },
+      "periods": {
+        "значение показателя за год": 1304
+      },
+      "duplicate_groups_without_quarter": 0,
+      "duplicate_groups_with_quarter": 0,
+      "control_643_2014_200": [],
+      "examples": {}
+    },
+    {
+      "file": "data_43537.sdmx",
+      "file_id": "43537",
+      "sha256": "5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5",
+      "observations": 860,
+      "declared_dimensions": [
+        "s_OKATO"
+      ],
+      "okfs_present": false,
+      "codelist": {},
+      "codes_in_observations": {},
+      "unused_codes": [],
+      "years": {
+        "2012": 92,
+        "2013": 94,
+        "2014": 97,
+        "2015": 97,
+        "2016": 96,
+        "2017": 96,
+        "2018": 96,
+        "2019": 96,
+        "2020": 96
+      },
+      "periods": {
+        "значение показателя за год": 860
+      },
+      "duplicate_groups_without_quarter": 0,
+      "duplicate_groups_with_quarter": 0,
+      "control_643_2014_200": [],
+      "examples": {}
+    },
+    {
+      "file": "data_43563.sdmx",
+      "file_id": "43563",
+      "sha256": "68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb",
+      "observations": 1024,
+      "declared_dimensions": [
+        "s_OKATO"
+      ],
+      "okfs_present": false,
+      "codelist": {},
+      "codes_in_observations": {},
+      "unused_codes": [],
+      "years": {
+        "2011": 92,
+        "2012": 92,
+        "2013": 94,
+        "2014": 97,
+        "2015": 98,
+        "2016": 98,
+        "2017": 98,
+        "2018": 98,
+        "2019": 27,
+        "2020": 32,
+        "2021": 63,
+        "2022": 67,
+        "2023": 68
+      },
+      "periods": {
+        "значение показателя за год": 1024
+      },
+      "duplicate_groups_without_quarter": 0,
+      "duplicate_groups_with_quarter": 0,
+      "control_643_2014_200": [],
+      "examples": {}
+    },
+    {
+      "file": "data_43586.sdmx",
+      "file_id": "43586",
+      "sha256": "f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8",
+      "observations": 1045,
+      "declared_dimensions": [
+        "s_OKATO"
+      ],
+      "okfs_present": false,
+      "codelist": {},
+      "codes_in_observations": {},
+      "unused_codes": [],
+      "years": {
+        "2010": 92,
+        "2011": 92,
+        "2012": 92,
+        "2013": 94,
+        "2014": 97,
+        "2015": 97,
+        "2016": 96,
+        "2017": 96,
+        "2018": 96,
+        "2019": 97,
+        "2020": 96
+      },
+      "periods": {
+        "значение показателя за год": 1045
+      },
+      "duplicate_groups_without_quarter": 0,
+      "duplicate_groups_with_quarter": 0,
+      "control_643_2014_200": [],
+      "examples": {}
+    },
+    {
+      "file": "data_43587.sdmx",
+      "file_id": "43587",
+      "sha256": "cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d",
+      "observations": 1333,
+      "declared_dimensions": [
+        "s_OKATO"
+      ],
+      "okfs_present": false,
+      "codelist": {},
+      "codes_in_observations": {},
+      "unused_codes": [],
+      "years": {
+        "2010": 92,
+        "2011": 92,
+        "2012": 92,
+        "2013": 94,
+        "2014": 97,
+        "2015": 97,
+        "2016": 96,
+        "2017": 96,
+        "2018": 96,
+        "2019": 97,
+        "2020": 96,
+        "2021": 96,
+        "2022": 96,
+        "2023": 96
+      },
+      "periods": {
+        "значение показателя за год": 1333
+      },
+      "duplicate_groups_without_quarter": 0,
+      "duplicate_groups_with_quarter": 0,
+      "control_643_2014_200": [],
+      "examples": {}
+    },
+    {
+      "file": "data_44198.sdmx",
+      "file_id": "44198",
+      "sha256": "0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb",
+      "observations": 1226,
+      "declared_dimensions": [
+        "s_OKATO",
+        "s_OKFS"
+      ],
+      "okfs_present": true,
+      "codelist": {
+        "199": "ВСЕГО (по всем формам собственности)",
+        "200": "ВСЕГО",
+        "14": "Муниципальная собственность",
+        "12": "Федеральная собственность",
+        "13": "Собственность субъектов Российской Федерации"
+      },
+      "codes_in_observations": {
+        "12": 536,
+        "13": 128,
+        "14": 13,
+        "200": 549
+      },
+      "unused_codes": [
+        "199"
+      ],
+      "years": {
+        "2014": 600,
+        "2015": 626
+      },
+      "periods": {
+        "I квартал": 408,
+        "II квартал": 409,
+        "III квартал": 409
+      },
+      "duplicate_groups_without_quarter": 409,
+      "duplicate_groups_with_quarter": 0,
+      "control_643_2014_200": [
+        {
+          "territory": "643",
+          "time": "2014",
+          "PERIOD": "I квартал",
+          "value": "111,7"
+        },
+        {
+          "territory": "643",
+          "time": "2014",
+          "PERIOD": "II квартал",
+          "value": "120,3"
+        },
+        {
+          "territory": "643",
+          "time": "2014",
+          "PERIOD": "III квартал",
+          "value": "125"
+        }
+      ],
+      "examples": {
+        "200": {
+          "territory": "643",
+          "time": "2014",
+          "PERIOD": "I квартал",
+          "value": "111,7"
+        },
+        "14": {
+          "territory": "643",
+          "time": "2014",
+          "PERIOD": "I квартал",
+          "value": "119,1"
+        },
+        "12": {
+          "territory": "643",
+          "time": "2014",
+          "PERIOD": "I квартал",
+          "value": "111,1"
+        },
+        "13": {
+          "territory": "643",
+          "time": "2014",
+          "PERIOD": "I квартал",
+          "value": "129,1"
+        }
+      }
+    }
+  ],
+  "total_observations": 6792
+}

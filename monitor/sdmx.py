@@ -103,7 +103,10 @@ def parse_document(filename,content):
         e=indicator.find('m:'+tag,NS)
         return e.attrib.get('value','') if e is not None else ''
     forms=[{'code':e.attrib.get('value',''),'name':e.findtext('m:Name',default='',namespaces=NS)} for e in indicator.findall('m:Forms/m:Form',NS)]
+    declared={e.attrib['value'] for e in indicator.findall('m:Dimensions/m:Dimension',NS) if e.attrib.get('value')}
     metadata={'methodology':val('Methodology'),'organization':val('Organization'),'department':val('Department'),'comment':val('Comment'),'forms':forms,'metadata_xml':ET.tostring(indicator,encoding='unicode'),'prepared':root.findtext('m:Header/m:Prepared',default='',namespaces=NS),'attributes':{},'dimension_values':{},'missing':0,'special':{},'duplicates':0,'raw_times':[]}
+    metadata.update(declared_dimensions=sorted(declared),dimension_codelists={k:v for k,v in lists.items() if k!='s_OKATO'},diagnostics=[],dimension_states={})
+    unknown_counts={}; unknown_samples={}
     unit=indicator.find('m:Units/m:Unit',NS)
     unit=unit.attrib.get('value','') if unit is not None else ''
     rows=[]; seen={}; raw_times=set(); series=dataset.findall('g:Series',NS)
@@ -120,8 +123,15 @@ def parse_document(filename,content):
             period=t; plabel=t
             kind=a.get('PERIOD','')
             quarters={'I квартал':1,'II квартал':2,'III квартал':3,'IV квартал':4}
-            if kind in quarters and len(t)==4: period=f'{t}-Q{quarters[kind]}'; plabel=f'{t}, {kind}'
+            if kind in quarters:
+                if len(t)==4: period=f'{t}-Q{quarters[kind]}'; plabel=f'{t}, {kind}'
+                elif not t.endswith(f'Q{quarters[kind]}'): raise DataError('Time и атрибут PERIOD задают разные кварталы: '+t+' / '+kind)
+            elif '-Q' in t:
+                plabel=t[:4]+', '+next(k for k,v in quarters.items() if t.endswith(f'Q{v}'))
             dims={k:v for k,v in keys.items() if k!='s_OKATO'}
+            # Объявленное, но не заполненное измерение отличается от неприменимого.
+            for code in declared-{'s_OKATO'}: dims.setdefault(code,'')
+            if 's_OKFS' in a: dims['s_OKFS']=a['s_OKFS']
             # Значимые атрибуты входят в ключ, статусы остаются изменяемыми данными.
             dims.update({k:v for k,v in a.items() if k in ('EI','PERIOD','UNIT_MULT','DECIMALS','FREQ')})
             canonical=json.dumps(dims,ensure_ascii=False,sort_keys=True,separators=(',',':'))
@@ -138,6 +148,15 @@ def parse_document(filename,content):
             if num is None:
                 metadata['missing']+=1; metadata['special'][raw]=metadata['special'].get(raw,0)+1
             labels={k:lists.get(k,{}).get(v,v) for k,v in dims.items()}
+            if 's_OKFS' not in dims: okfs_state='absent'
+            elif dims['s_OKFS']=='': okfs_state='missing'
+            elif dims['s_OKFS'] in lists.get('s_OKFS',{}): okfs_state='known'
+            else:
+                okfs_state='unknown'; code=dims['s_OKFS']
+                unknown_counts[code]=unknown_counts.get(code,0)+1
+                unknown_samples.setdefault(code,{'territory':keys['s_OKATO'],'period':period})
+            counts=metadata['dimension_states'].setdefault('s_OKFS',{})
+            counts[okfs_state]=counts.get(okfs_state,0)+1
             row={'territory':keys['s_OKATO'],'territory_name':lists.get('s_OKATO',{}).get(keys['s_OKATO'],keys['s_OKATO']),'period':period,'period_label':plabel,'year':int(t[:4]),'dimension_key':fingerprint,'dimensions':dims,'dimension_labels':labels,'numeric_text':num,'raw_value':raw,'status':status,'attributes':a}
             identity=(row['territory'],period,fingerprint)
             if identity in seen:
@@ -150,5 +169,7 @@ def parse_document(filename,content):
     if not rows: raise DataError('Нет наблюдений в '+filename)
     for k in ('attributes','dimension_values'):metadata[k]={a:sorted(b) for a,b in metadata[k].items()}
     metadata['raw_times']=sorted(raw_times)
+    for code,count in sorted(unknown_counts.items()):
+        metadata['diagnostics'].append({'type':'unknown_dimension_code','dimension':'s_OKFS','code':code,'count':count,'sample':unknown_samples[code],'message':'Код ОКФС отсутствует в справочнике исходного файла; исходное значение сохранено.'})
     metadata['unit_multiplier']='Явный UNIT_MULT отсутствует; масштаб задаётся текстом EI.' if 'UNIT_MULT' not in metadata['attributes'] else metadata['attributes']['UNIT_MULT']
     return Document(filename,content,file_id,metadata_id,root.findtext('m:Header/m:ID',default='',namespaces=NS),root.findtext('m:Header/m:DataSetID',default='',namespaces=NS),name,unit,metadata,lists,names,rows,len(series),hashlib.sha256(content).hexdigest())

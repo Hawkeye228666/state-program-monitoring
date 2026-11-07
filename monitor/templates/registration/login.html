@@ -1,0 +1,13 @@
+{% extends 'monitor/base.html' %}
+{% block title %}Вход в систему{% endblock %}
+{% block content %}
+<h1>Вход в систему</h1>
+<p>Внутренний аналитический модуль. Учётную запись и роль назначает администратор.</p>
+<form method="post" class="panel" style="max-width:32rem">
+{% csrf_token %}{{ form.non_field_errors }}
+<p><label for="id_username">Имя пользователя</label><input id="id_username" name="username" type="text" autocomplete="username" required class="form-control"></p>
+<p><label for="id_password">Пароль</label><input id="id_password" name="password" type="password" autocomplete="current-password" required class="form-control"></p>
+<input type="hidden" name="next" value="{{ next }}">
+<button type="submit" class="btn btn-primary">Войти</button>
+</form>
+{% endblock %}

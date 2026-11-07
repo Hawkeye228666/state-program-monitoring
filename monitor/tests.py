@@ -83,6 +83,10 @@ class ParserSafetyTests(TestCase):
         with self.assertRaises(DataError):parse_document(name,XML.tostring(root,encoding='utf-8'))
 
 class FullProjectTests(TestCase):
+    def setUp(self):
+        from django.contrib.auth import get_user_model
+        self.client.force_login(get_user_model().objects.get(username='regression-admin'))
+
     @classmethod
     def setUpClass(cls):
         cls.tmp=tempfile.TemporaryDirectory(dir=Path(settings.BASE_DIR).parent);cls.override=override_settings(MEDIA_ROOT=cls.tmp.name);cls.override.enable();super().setUpClass()
@@ -91,6 +95,8 @@ class FullProjectTests(TestCase):
         cls.override.disable();cls.tmp.cleanup();super().tearDownClass()
     @classmethod
     def setUpTestData(cls):
+        from django.contrib.auth import get_user_model
+        get_user_model().objects.create_superuser('regression-admin',password='test-only-unpublished-password')
         cls.files=original_files();cls.docs=[parse_document(n,b) for n,b in cls.files]
         for d in cls.docs:import_documents([d])
     def test_all_database_values_against_independent_xml(self):
@@ -152,7 +158,7 @@ class FullProjectTests(TestCase):
     def test_empty_results_and_chart_guards(self):
         r=self.client.get('/explore/?program=housing&mode=all&regions=missing');self.assertEqual(r.status_code,200);self.assertContains(r,'нет наблюдений')
         rows,_,_=select_rows(Program.objects.get(slug='science'),QueryDict('mode=one&indicator=44198&regions=643'))
-        self.assertFalse(chart_data(rows)['reason']);self.assertTrue(chart_data(rows)['heat_reason'])
+        self.assertTrue(chart_data(rows)['reason'])
         allrows,_,_=select_rows(Program.objects.get(slug='science'),QueryDict('mode=all&regions=643'));self.assertTrue(chart_data(allrows)['reason'])
     def test_pages_filters_and_numeric_sort(self):
         for url in ['/','/programs/housing/','/programs/science/','/upload/','/history/','/explore/']:

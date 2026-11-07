@@ -1,0 +1,15 @@
+{
+  "time": "2026-11-07T17:52:06.968717+00:00",
+  "database": "monitor_integrated_175206",
+  "restore_database": "monitor_integrated_175206_restore",
+  "docker_available": false,
+  "limitations": [
+    "Docker executable/engine unavailable: Compose build, container health and container recreation remain unverified locally. Native PostgreSQL restart was verified separately."
+  ],
+  "existing_upgrade_rows_equal": true,
+  "observations": 6792,
+  "restore_equal": true,
+  "restart_equal": true,
+  "tests": "passed",
+  "status": "success"
+}

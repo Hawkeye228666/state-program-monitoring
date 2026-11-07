@@ -14,3 +14,15 @@ work/
 .venv-*/
 .env.*
 .localdeps/
+
+!.env.example
+backups/
+transfer/
+*.dump
+*.bak
+
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.db
