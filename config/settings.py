@@ -4,10 +4,11 @@ from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
-DB_ENGINE = os.environ.get('DB_ENGINE', 'sqlite')
+if os.environ.get('DB_ENGINE','postgresql') != 'postgresql' or os.environ.get('DATABASE_URL'):
+    raise ImproperlyConfigured('Only PostgreSQL is supported. Configure POSTGRES_* variables; DATABASE_URL is not supported.')
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '')
 if not SECRET_KEY:
-    if DB_ENGINE == 'postgresql' and not DEBUG:
+    if not DEBUG:
         raise ImproperlyConfigured('DJANGO_SECRET_KEY must be set for PostgreSQL deployment.')
     SECRET_KEY = 'local-study-project-do-not-use-in-production'
 ALLOWED_HOSTS = [h.strip() for h in os.environ.get('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost,[::1],testserver').split(',') if h.strip()]
@@ -17,21 +18,17 @@ MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'whitenoise.middl
 ROOT_URLCONF = 'config.urls'
 TEMPLATES = [{'BACKEND':'django.template.backends.django.DjangoTemplates','DIRS':[], 'APP_DIRS':True,'OPTIONS':{'context_processors':['django.template.context_processors.request','django.contrib.auth.context_processors.auth','django.contrib.messages.context_processors.messages']}}]
 WSGI_APPLICATION = 'config.wsgi.application'
-if DB_ENGINE == 'postgresql':
-    DATABASES = {'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB', 'monitor'),
-        'USER': os.environ.get('POSTGRES_APP_USER', 'monitor_app'),
-        'PASSWORD': os.environ.get('POSTGRES_APP_PASSWORD', ''),
-        'HOST': os.environ.get('POSTGRES_HOST', 'db'),
-        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
-        'CONN_MAX_AGE': 60, 'CONN_HEALTH_CHECKS': True,
-        'OPTIONS': {'connect_timeout': 5},
-    }}
-elif DB_ENGINE == 'sqlite':
-    DATABASES = {'default': {'ENGINE':'django.db.backends.sqlite3','NAME':os.environ.get('MONITOR_DB',str(BASE_DIR/'db.sqlite3')),'OPTIONS':{'timeout':30}}}
-else:
-    raise ImproperlyConfigured('DB_ENGINE must be sqlite or postgresql.')
+required = ('POSTGRES_DB','POSTGRES_APP_USER','POSTGRES_APP_PASSWORD','POSTGRES_HOST')
+missing = [key for key in required if not os.environ.get(key)]
+if missing:
+    raise ImproperlyConfigured('PostgreSQL is not configured. Set: ' + ', '.join(missing) + '. Use Docker Compose and .env.example.')
+DATABASES = {'default': {
+    'ENGINE':'django.db.backends.postgresql', 'NAME':os.environ['POSTGRES_DB'],
+    'USER':os.environ['POSTGRES_APP_USER'], 'PASSWORD':os.environ['POSTGRES_APP_PASSWORD'],
+    'HOST':os.environ['POSTGRES_HOST'], 'PORT':os.environ.get('POSTGRES_PORT','5432'),
+    'CONN_MAX_AGE':60, 'CONN_HEALTH_CHECKS':True, 'OPTIONS':{'connect_timeout':5},
+    'TEST':{'NAME':os.environ.get('POSTGRES_TEST_DB','test_' + os.environ['POSTGRES_DB'])},
+}}
 LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True

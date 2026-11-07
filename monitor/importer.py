@@ -1,4 +1,5 @@
 from pathlib import Path
+from decimal import Decimal
 from django.conf import settings
 from django.db import transaction
 from .catalog import MAPPING, seed_programs, territory_kind
@@ -45,6 +46,8 @@ def import_documents(documents, assignments=None, actor=None):
                 for row in d.rows:
                     key=(row['territory'],row['period'],row['dimension_key'])
                     payload={k:row[k] for k in ['dimensions','dimension_labels','numeric_text','raw_value','status','attributes']}
+                    numeric=payload.pop('numeric_text')
+                    payload['numeric_value']=Observation._meta.get_field('numeric_value').clean(Decimal(numeric) if numeric is not None else None,None)
                     old=existing.get(key)
                     if old is None:
                         old=Observation.objects.create(indicator=indicator,territory=territories[row['territory']],period=periods[row['period']],dimension_key=row['dimension_key'],source=source,last_import=run,**payload)

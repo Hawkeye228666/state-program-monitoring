@@ -56,7 +56,7 @@ def indicators(request):
     if request.GET.get('program'): qs = qs.filter(program__slug=request.GET['program'])
     if request.GET.getlist('indicator'): qs = qs.filter(file_id__in=request.GET.getlist('indicator'))
     def serialize(i):
-        # Portable across PostgreSQL and SQLite, bounded to the actual source records.
+        # PostgreSQL source records, bounded to the actual source records.
         from .models import SourceFile
         sources = SourceFile.objects.filter(observation__indicator=i).distinct().order_by('pk')
         return {'id': i.file_id, 'name': i.name, 'unit': i.unit, 'program': i.program.slug,

@@ -4,7 +4,7 @@ from pathlib import Path
 from django.apps import apps
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
-from monitor.transfer import canonical, digest
+from monitor.integrity import canonical, digest
 from monitor.models import SourceFile
 
 class Command(BaseCommand):

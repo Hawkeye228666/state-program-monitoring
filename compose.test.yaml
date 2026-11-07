@@ -1,0 +1,13 @@
+services:
+  db:
+    environment:
+      POSTGRES_DB: monitor_testdb
+      POSTGRES_APP_USER: monitor_test
+  app:
+    environment:
+      POSTGRES_DB: monitor_testdb
+      POSTGRES_APP_USER: monitor_test
+  migrate:
+    environment:
+      POSTGRES_DB: monitor_testdb
+      POSTGRES_APP_USER: monitor_test

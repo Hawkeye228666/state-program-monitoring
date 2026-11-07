@@ -2,33 +2,11 @@ $ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-p
 waiting for server to start.... done
 server started
 
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py wait_for_db --timeout 10
-Database ready (authenticated SELECT 1).
-
 $ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py migrate --noinput
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, monitor, sessions
 Running migrations:
-  Applying contenttypes.0001_initial... OK
-  Applying auth.0001_initial... OK
-  Applying admin.0001_initial... OK
-  Applying admin.0002_logentry_remove_auto_add... OK
-  Applying admin.0003_logentry_add_action_flag_choices... OK
-  Applying contenttypes.0002_remove_content_type_name... OK
-  Applying auth.0002_alter_permission_name_max_length... OK
-  Applying auth.0003_alter_user_email_max_length... OK
-  Applying auth.0004_alter_user_username_opts... OK
-  Applying auth.0005_alter_user_last_login_null... OK
-  Applying auth.0006_require_contenttypes_0002... OK
-  Applying auth.0007_alter_validators_add_error_messages... OK
-  Applying auth.0008_alter_user_username_max_length... OK
-  Applying auth.0009_alter_user_last_name_max_length... OK
-  Applying auth.0010_alter_group_name_max_length... OK
-  Applying auth.0011_update_proxy_permissions... OK
-  Applying auth.0012_alter_user_first_name_max_length... OK
-  Applying monitor.0001_initial... OK
-  Applying monitor.0002_exact_numeric... OK
-  Applying sessions.0001_initial... OK
+  No migrations to apply.
 
 $ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py check
 System check identified no issues (0 silenced).
@@ -36,351 +14,8 @@ System check identified no issues (0 silenced).
 $ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py makemigrations --check --dry-run
 No changes detected
 
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py transfer_sqlite --source C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\baseline-backup.sqlite3 --media-source C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\github-upload\data --backup-dir C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-transfer
-{
-  "snapshot": "C:\\Users\\Genus\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-c\\work\\pg-transfer\\sqlite-before-transfer-20261107T170241917560Z.sqlite3",
-  "snapshot_sha256": "7f18901e2cef1b8d77ec58df82c4947edb7080d900c10b80e35a7c5ecbda33ac",
-  "tables": {
-    "django_content_type": {
-      "source": 11,
-      "target": 11,
-      "sha256": "34e7e16faf97f6265db0e63bd44cf9bf6ecd4b0730c961b074e8e85950776c42"
-    },
-    "django_session": {
-      "source": 0,
-      "target": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "monitor_dimension": {
-      "source": 13,
-      "target": 13,
-      "sha256": "26192d3574c86b9b9fb406b06fae65f3267d2749b4137d5f7eb3e78a6f37819c"
-    },
-    "monitor_dimensionvalue": {
-      "source": 18,
-      "target": 18,
-      "sha256": "fcbaac57ffd5d0b5439b96af66a1d850ec2dbe58863cd8a4e5c5d63a8d1b94c9"
-    },
-    "monitor_importrun": {
-      "source": 1,
-      "target": 1,
-      "sha256": "266d64a3bf845cc10128ab5d7e3519ffb9f69de9429d3e8634c653454eeccda2"
-    },
-    "monitor_indicator": {
-      "source": 6,
-      "target": 6,
-      "sha256": "6150502cab08713d930631e304be3dd975c9b141da827d8d06413264a1fa7e16"
-    },
-    "monitor_observation": {
-      "source": 6792,
-      "target": 6792,
-      "sha256": "a498da301d86727269cc4e683f69ca209314fa79cbe10b944f98f995d90f3adf"
-    },
-    "monitor_period": {
-      "source": 20,
-      "target": 20,
-      "sha256": "09c214eb81d76feddf76c7822e1196142d5cf51b2f44de69a42dcc0ead854868"
-    },
-    "monitor_program": {
-      "source": 2,
-      "target": 2,
-      "sha256": "29d6b62a7349ed44113dcd740d8b8c338a96bccf7b351b9b1ecaf2f5f4f885dc"
-    },
-    "monitor_sourcefile": {
-      "source": 6,
-      "target": 6,
-      "sha256": "eb34b2b23b781e793ae702ee33d18a02ffd8320e044c121bebc30f9da1fca1ec"
-    },
-    "monitor_territory": {
-      "source": 172,
-      "target": 172,
-      "sha256": "5969dc53622258071c5bbc73018120d4f936e208a325f9c23b61254efddc498d"
-    }
-  },
-  "media_files": 6,
-  "status": "success",
-  "foreign_keys": "checked",
-  "sequences": "reset to max(pk)",
-  "report": "C:\\Users\\Genus\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-c\\work\\pg-transfer\\transfer-report-20261107T170241917560Z.json"
-}
-
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py db_fingerprint --check-files
-{
-  "tables": {
-    "auth_group": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_group_permissions": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_permission": {
-      "count": 60,
-      "sha256": "2aaea80a72d50c0aaed6e90d4a7ecca1b86d8b0feea36493bdb5221a92be978e"
-    },
-    "auth_user": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_user_groups": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_user_user_permissions": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "django_admin_log": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "django_content_type": {
-      "count": 15,
-      "sha256": "a9c1f380bb4d0e9e663ca068e38d9a981c863947f0276c50d33d1097c9a8ec5e"
-    },
-    "django_session": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "monitor_dimension": {
-      "count": 13,
-      "sha256": "6a44cd03e78e49ac9ae3681e7bc7ac7c10fe8c07c88595d6a95bf4d127f786b4"
-    },
-    "monitor_dimensionvalue": {
-      "count": 18,
-      "sha256": "30140dc33c41355558a67ff25ec561b632a465a2ba659442596daab475d59610"
-    },
-    "monitor_importrun": {
-      "count": 1,
-      "sha256": "47de6da8787681b8313fb3ba8ef568bcb249b7d0aec3618d56d5dcf0ed197ffc"
-    },
-    "monitor_indicator": {
-      "count": 6,
-      "sha256": "a77dd507a8e65c0fcb271a77f711c8a605e6b6a529be0c3474a69f98bd7adab2"
-    },
-    "monitor_observation": {
-      "count": 6792,
-      "sha256": "48ef4be63af0f90c7594b3c34b37af7c8a86b095ade4a7e1e1a4d33c6c4072ce"
-    },
-    "monitor_period": {
-      "count": 20,
-      "sha256": "09c214eb81d76feddf76c7822e1196142d5cf51b2f44de69a42dcc0ead854868"
-    },
-    "monitor_program": {
-      "count": 2,
-      "sha256": "29d6b62a7349ed44113dcd740d8b8c338a96bccf7b351b9b1ecaf2f5f4f885dc"
-    },
-    "monitor_sourcefile": {
-      "count": 6,
-      "sha256": "eb34b2b23b781e793ae702ee33d18a02ffd8320e044c121bebc30f9da1fca1ec"
-    },
-    "monitor_territory": {
-      "count": 172,
-      "sha256": "5969dc53622258071c5bbc73018120d4f936e208a325f9c23b61254efddc498d"
-    }
-  },
-  "files": {
-    "sources/0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb.sdmx": "0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb",
-    "sources/5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5.sdmx": "5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5",
-    "sources/68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb.sdmx": "68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb",
-    "sources/cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d.sdmx": "cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d",
-    "sources/da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552.sdmx": "da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552",
-    "sources/f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8.sdmx": "f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8"
-  }
-}
-
-$ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\pgsql\bin\pg_dump.exe -h 127.0.0.1 -p 55439 -U postgres -d monitor_integrated_170233 -Fc --no-owner --no-privileges -f C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-transfer\native-backup.dump
-
-$ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\pgsql\bin\pg_restore.exe -h 127.0.0.1 -p 55439 -U postgres --role=monitor_app --no-owner --no-privileges --exit-on-error -d monitor_integrated_170233_restore C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-transfer\native-backup.dump
-
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py db_fingerprint --check-files
-{
-  "tables": {
-    "auth_group": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_group_permissions": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_permission": {
-      "count": 60,
-      "sha256": "2aaea80a72d50c0aaed6e90d4a7ecca1b86d8b0feea36493bdb5221a92be978e"
-    },
-    "auth_user": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_user_groups": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_user_user_permissions": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "django_admin_log": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "django_content_type": {
-      "count": 15,
-      "sha256": "a9c1f380bb4d0e9e663ca068e38d9a981c863947f0276c50d33d1097c9a8ec5e"
-    },
-    "django_session": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "monitor_dimension": {
-      "count": 13,
-      "sha256": "6a44cd03e78e49ac9ae3681e7bc7ac7c10fe8c07c88595d6a95bf4d127f786b4"
-    },
-    "monitor_dimensionvalue": {
-      "count": 18,
-      "sha256": "30140dc33c41355558a67ff25ec561b632a465a2ba659442596daab475d59610"
-    },
-    "monitor_importrun": {
-      "count": 1,
-      "sha256": "47de6da8787681b8313fb3ba8ef568bcb249b7d0aec3618d56d5dcf0ed197ffc"
-    },
-    "monitor_indicator": {
-      "count": 6,
-      "sha256": "a77dd507a8e65c0fcb271a77f711c8a605e6b6a529be0c3474a69f98bd7adab2"
-    },
-    "monitor_observation": {
-      "count": 6792,
-      "sha256": "48ef4be63af0f90c7594b3c34b37af7c8a86b095ade4a7e1e1a4d33c6c4072ce"
-    },
-    "monitor_period": {
-      "count": 20,
-      "sha256": "09c214eb81d76feddf76c7822e1196142d5cf51b2f44de69a42dcc0ead854868"
-    },
-    "monitor_program": {
-      "count": 2,
-      "sha256": "29d6b62a7349ed44113dcd740d8b8c338a96bccf7b351b9b1ecaf2f5f4f885dc"
-    },
-    "monitor_sourcefile": {
-      "count": 6,
-      "sha256": "eb34b2b23b781e793ae702ee33d18a02ffd8320e044c121bebc30f9da1fca1ec"
-    },
-    "monitor_territory": {
-      "count": 172,
-      "sha256": "5969dc53622258071c5bbc73018120d4f936e208a325f9c23b61254efddc498d"
-    }
-  },
-  "files": {
-    "sources/0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb.sdmx": "0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb",
-    "sources/5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5.sdmx": "5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5",
-    "sources/68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb.sdmx": "68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb",
-    "sources/cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d.sdmx": "cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d",
-    "sources/da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552.sdmx": "da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552",
-    "sources/f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8.sdmx": "f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8"
-  }
-}
-
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py shell -c from django.contrib.auth.models import User; from monitor.models import ImportRun; print('new_user_id',User.objects.create_user('sequence-canary').pk); print('new_import_id',ImportRun.objects.create(status='success').pk)
-15 objects imported automatically (use -v 2 for details).
-
-new_user_id 1
-new_import_id 2
-
-$ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\pgsql\bin\pg_ctl.exe -D C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\cluster -m fast -w stop
-waiting for server to shut down...... done
-server stopped
-
-$ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\pgsql\bin\pg_ctl.exe -D C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\cluster -l C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\server.log -o -h 127.0.0.1 -p 55439 -w start
-waiting for server to start.... done
-server started
-
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py db_fingerprint --check-files
-{
-  "tables": {
-    "auth_group": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_group_permissions": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_permission": {
-      "count": 60,
-      "sha256": "2aaea80a72d50c0aaed6e90d4a7ecca1b86d8b0feea36493bdb5221a92be978e"
-    },
-    "auth_user": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_user_groups": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "auth_user_user_permissions": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "django_admin_log": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "django_content_type": {
-      "count": 15,
-      "sha256": "a9c1f380bb4d0e9e663ca068e38d9a981c863947f0276c50d33d1097c9a8ec5e"
-    },
-    "django_session": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-    },
-    "monitor_dimension": {
-      "count": 13,
-      "sha256": "6a44cd03e78e49ac9ae3681e7bc7ac7c10fe8c07c88595d6a95bf4d127f786b4"
-    },
-    "monitor_dimensionvalue": {
-      "count": 18,
-      "sha256": "30140dc33c41355558a67ff25ec561b632a465a2ba659442596daab475d59610"
-    },
-    "monitor_importrun": {
-      "count": 1,
-      "sha256": "47de6da8787681b8313fb3ba8ef568bcb249b7d0aec3618d56d5dcf0ed197ffc"
-    },
-    "monitor_indicator": {
-      "count": 6,
-      "sha256": "a77dd507a8e65c0fcb271a77f711c8a605e6b6a529be0c3474a69f98bd7adab2"
-    },
-    "monitor_observation": {
-      "count": 6792,
-      "sha256": "48ef4be63af0f90c7594b3c34b37af7c8a86b095ade4a7e1e1a4d33c6c4072ce"
-    },
-    "monitor_period": {
-      "count": 20,
-      "sha256": "09c214eb81d76feddf76c7822e1196142d5cf51b2f44de69a42dcc0ead854868"
-    },
-    "monitor_program": {
-      "count": 2,
-      "sha256": "29d6b62a7349ed44113dcd740d8b8c338a96bccf7b351b9b1ecaf2f5f4f885dc"
-    },
-    "monitor_sourcefile": {
-      "count": 6,
-      "sha256": "eb34b2b23b781e793ae702ee33d18a02ffd8320e044c121bebc30f9da1fca1ec"
-    },
-    "monitor_territory": {
-      "count": 172,
-      "sha256": "5969dc53622258071c5bbc73018120d4f936e208a325f9c23b61254efddc498d"
-    }
-  },
-  "files": {
-    "sources/0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb.sdmx": "0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb",
-    "sources/5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5.sdmx": "5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5",
-    "sources/68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb.sdmx": "68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb",
-    "sources/cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d.sdmx": "cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d",
-    "sources/da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552.sdmx": "da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552",
-    "sources/f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8.sdmx": "f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8"
-  }
-}
-
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py migrate --noinput
+$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py bootstrap_postgres --load-data
+Database ready (authenticated SELECT 1).
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, monitor, sessions
 Running migrations:
@@ -403,36 +38,50 @@ Running migrations:
   Applying auth.0012_alter_user_first_name_max_length... OK
   Applying monitor.0001_initial... OK
   Applying monitor.0002_exact_numeric... OK
+  Applying monitor.0003_native_decimal... OK
   Applying sessions.0001_initial... OK
-
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py import_sdmx C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\github-upload\materials\Материал для задания 3.zip
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1304}}, 'file': 'data_43512.sdmx', 'file_id': '43512', 'header_id': '260375071', 'dataset_id': '9420013', 'program': 'housing', 'added': 1304, 'updated': 0, 'skipped': 0, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 860}}, 'file': 'data_43537.sdmx', 'file_id': '43537', 'header_id': '262658965', 'dataset_id': '9420036', 'program': 'housing', 'added': 860, 'updated': 0, 'skipped': 0, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1024}}, 'file': 'data_43563.sdmx', 'file_id': '43563', 'header_id': '264894434', 'dataset_id': '9420058', 'program': 'housing', 'added': 1024, 'updated': 0, 'skipped': 0, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1045}}, 'file': 'data_43586.sdmx', 'file_id': '43586', 'header_id': '266501725', 'dataset_id': '9420043', 'program': 'science', 'added': 1045, 'updated': 0, 'skipped': 0, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1333}}, 'file': 'data_43587.sdmx', 'file_id': '43587', 'header_id': '266504719', 'dataset_id': '9420042', 'program': 'science', 'added': 1333, 'updated': 0, 'skipped': 0, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'known': 1226}}, 'file': 'data_44198.sdmx', 'file_id': '44198', 'header_id': '274459040', 'dataset_id': '9430020', 'program': 'science', 'added': 1226, 'updated': 0, 'skipped': 0, 'errors': 0}
+Аналитик: 9 прав
+Оператор загрузки: 10 прав
+Администратор: 48 прав
+Назначьте группы пользователям через createsuperuser и /admin/. Для входа в /admin/ нужен is_staff.
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'known': 1226}}, 'file': '0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb.sdmx', 'file_id': '44198', 'header_id': '274459040', 'dataset_id': '9430020', 'program': 'science', 'added': 1226, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 860}}, 'file': '5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5.sdmx', 'file_id': '43537', 'header_id': '262658965', 'dataset_id': '9420036', 'program': 'housing', 'added': 860, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1024}}, 'file': '68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb.sdmx', 'file_id': '43563', 'header_id': '264894434', 'dataset_id': '9420058', 'program': 'housing', 'added': 1024, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1333}}, 'file': 'cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d.sdmx', 'file_id': '43587', 'header_id': '266504719', 'dataset_id': '9420042', 'program': 'science', 'added': 1333, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1304}}, 'file': 'da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552.sdmx', 'file_id': '43512', 'header_id': '260375071', 'dataset_id': '9420013', 'program': 'housing', 'added': 1304, 'updated': 0, 'skipped': 0, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1045}}, 'file': 'f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8.sdmx', 'file_id': '43586', 'header_id': '266501725', 'dataset_id': '9420043', 'program': 'science', 'added': 1045, 'updated': 0, 'skipped': 0, 'errors': 0}
 Добавлено: 6792; обновлено: 0; пропущено: 0; ошибок: 0
+Observations: 6792
 
-$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py import_sdmx C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\github-upload\materials\Материал для задания 3.zip
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1304}}, 'file': 'data_43512.sdmx', 'file_id': '43512', 'header_id': '260375071', 'dataset_id': '9420013', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 1304, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 860}}, 'file': 'data_43537.sdmx', 'file_id': '43537', 'header_id': '262658965', 'dataset_id': '9420036', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 860, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1024}}, 'file': 'data_43563.sdmx', 'file_id': '43563', 'header_id': '264894434', 'dataset_id': '9420058', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 1024, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1045}}, 'file': 'data_43586.sdmx', 'file_id': '43586', 'header_id': '266501725', 'dataset_id': '9420043', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1045, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1333}}, 'file': 'data_43587.sdmx', 'file_id': '43587', 'header_id': '266504719', 'dataset_id': '9420042', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1333, 'errors': 0}
-{'diagnostics': [], 'dimension_states': {'s_OKFS': {'known': 1226}}, 'file': 'data_44198.sdmx', 'file_id': '44198', 'header_id': '274459040', 'dataset_id': '9430020', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1226, 'errors': 0}
+$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py bootstrap_postgres --load-data
+Database ready (authenticated SELECT 1).
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, monitor, sessions
+Running migrations:
+  No migrations to apply.
+Аналитик: 9 прав
+Оператор загрузки: 10 прав
+Администратор: 48 прав
+Назначьте группы пользователям через createsuperuser и /admin/. Для входа в /admin/ нужен is_staff.
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'known': 1226}}, 'file': '0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb.sdmx', 'file_id': '44198', 'header_id': '274459040', 'dataset_id': '9430020', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1226, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 860}}, 'file': '5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5.sdmx', 'file_id': '43537', 'header_id': '262658965', 'dataset_id': '9420036', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 860, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1024}}, 'file': '68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb.sdmx', 'file_id': '43563', 'header_id': '264894434', 'dataset_id': '9420058', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 1024, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1333}}, 'file': 'cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d.sdmx', 'file_id': '43587', 'header_id': '266504719', 'dataset_id': '9420042', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1333, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1304}}, 'file': 'da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552.sdmx', 'file_id': '43512', 'header_id': '260375071', 'dataset_id': '9420013', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 1304, 'errors': 0}
+{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1045}}, 'file': 'f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8.sdmx', 'file_id': '43586', 'header_id': '266501725', 'dataset_id': '9420043', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1045, 'errors': 0}
 Добавлено: 0; обновлено: 0; пропущено: 6792; ошибок: 0
+Observations: 6792
 
 $ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py db_fingerprint --check-files
 {
   "tables": {
     "auth_group": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      "count": 3,
+      "sha256": "1f84760c98a8b965d22d93eb8b90ac8398c9eab9e77d4eece9ecb2ff062a553d"
     },
     "auth_group_permissions": {
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      "count": 67,
+      "sha256": "e396ae648bf7b7046ab4262016788a76435b4a840c32367f3f20f225c2881f24"
     },
     "auth_permission": {
       "count": 60,
@@ -464,27 +113,27 @@ $ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python
     },
     "monitor_dimension": {
       "count": 13,
-      "sha256": "6a44cd03e78e49ac9ae3681e7bc7ac7c10fe8c07c88595d6a95bf4d127f786b4"
+      "sha256": "99ae6797276f04468576aafab3ef3e98363f5a027ed4cf571b6f04b03c6907f9"
     },
     "monitor_dimensionvalue": {
       "count": 18,
-      "sha256": "30140dc33c41355558a67ff25ec561b632a465a2ba659442596daab475d59610"
+      "sha256": "c3790796f4d13301063d003a521d49f5d561e35aa389c56ec3d227e617c3384c"
     },
     "monitor_importrun": {
       "count": 2,
-      "sha256": "f5cc10221c28a2ab9f16baf38f166774c2a633525b73547be06b0dc6f0f8ee9a"
+      "sha256": "53bf1c8b22a70bdfd16620b848a25b4b958c663dc7e12f81ac8e3aa05943a2de"
     },
     "monitor_indicator": {
       "count": 6,
-      "sha256": "74e77435a7b7cc772f8c733061aa0aadd1774d01ef676d9dce6da8bb523934a2"
+      "sha256": "3b1c5cb9e42508fe3368d23fb138c55703de98a26ac160c35f0069f6b9197709"
     },
     "monitor_observation": {
       "count": 6792,
-      "sha256": "48ef4be63af0f90c7594b3c34b37af7c8a86b095ade4a7e1e1a4d33c6c4072ce"
+      "sha256": "875457150abda1e922740ad296941922bef8e07c63aa36bc4fe5b50f011ef369"
     },
     "monitor_period": {
       "count": 20,
-      "sha256": "09c214eb81d76feddf76c7822e1196142d5cf51b2f44de69a42dcc0ead854868"
+      "sha256": "458ef125576783d7bc394452dc894be605cc6989a3bffb3434382e1c996cddea"
     },
     "monitor_program": {
       "count": 2,
@@ -492,11 +141,195 @@ $ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python
     },
     "monitor_sourcefile": {
       "count": 6,
-      "sha256": "b3ceb396a76ee81ea70e1ac91d8ee576edd5981bb5143835cb875b5e881c5817"
+      "sha256": "678d0305b3b5318c0932835058089f43a6fc466874d567752e6d650ddc830f48"
     },
     "monitor_territory": {
       "count": 172,
-      "sha256": "5969dc53622258071c5bbc73018120d4f936e208a325f9c23b61254efddc498d"
+      "sha256": "f7d5eb2bae8659b8b3619ab24d6258f45b21f8495041d91b4c5671bd58ca8871"
+    }
+  },
+  "files": {
+    "sources/0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb.sdmx": "0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb",
+    "sources/5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5.sdmx": "5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5",
+    "sources/68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb.sdmx": "68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb",
+    "sources/cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d.sdmx": "cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d",
+    "sources/da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552.sdmx": "da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552",
+    "sources/f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8.sdmx": "f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8"
+  }
+}
+
+$ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\pgsql\bin\pg_dump.exe -h 127.0.0.1 -p 55439 -U postgres -d monitor_integrated_175206_xml -Fc --no-owner --no-privileges -f C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\preserved-data\pg-only-fresh.dump
+
+$ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\pgsql\bin\pg_restore.exe -h 127.0.0.1 -p 55439 -U postgres --role=monitor_app --no-owner --no-privileges --exit-on-error -d monitor_integrated_175206_restore C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\preserved-data\pg-only-fresh.dump
+
+$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py db_fingerprint --check-files
+{
+  "tables": {
+    "auth_group": {
+      "count": 3,
+      "sha256": "1f84760c98a8b965d22d93eb8b90ac8398c9eab9e77d4eece9ecb2ff062a553d"
+    },
+    "auth_group_permissions": {
+      "count": 67,
+      "sha256": "e396ae648bf7b7046ab4262016788a76435b4a840c32367f3f20f225c2881f24"
+    },
+    "auth_permission": {
+      "count": 60,
+      "sha256": "bedabb1b0438bcb47851043aa8cbab47dbc0d489179ae9036a485041394c058b"
+    },
+    "auth_user": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "auth_user_groups": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "auth_user_user_permissions": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "django_admin_log": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "django_content_type": {
+      "count": 15,
+      "sha256": "60101bffd1e0ed4e3b66a6a41bd73a6413aaa9bab0780ebdfd324e4b8d17d686"
+    },
+    "django_session": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "monitor_dimension": {
+      "count": 13,
+      "sha256": "99ae6797276f04468576aafab3ef3e98363f5a027ed4cf571b6f04b03c6907f9"
+    },
+    "monitor_dimensionvalue": {
+      "count": 18,
+      "sha256": "c3790796f4d13301063d003a521d49f5d561e35aa389c56ec3d227e617c3384c"
+    },
+    "monitor_importrun": {
+      "count": 2,
+      "sha256": "53bf1c8b22a70bdfd16620b848a25b4b958c663dc7e12f81ac8e3aa05943a2de"
+    },
+    "monitor_indicator": {
+      "count": 6,
+      "sha256": "3b1c5cb9e42508fe3368d23fb138c55703de98a26ac160c35f0069f6b9197709"
+    },
+    "monitor_observation": {
+      "count": 6792,
+      "sha256": "875457150abda1e922740ad296941922bef8e07c63aa36bc4fe5b50f011ef369"
+    },
+    "monitor_period": {
+      "count": 20,
+      "sha256": "458ef125576783d7bc394452dc894be605cc6989a3bffb3434382e1c996cddea"
+    },
+    "monitor_program": {
+      "count": 2,
+      "sha256": "29d6b62a7349ed44113dcd740d8b8c338a96bccf7b351b9b1ecaf2f5f4f885dc"
+    },
+    "monitor_sourcefile": {
+      "count": 6,
+      "sha256": "678d0305b3b5318c0932835058089f43a6fc466874d567752e6d650ddc830f48"
+    },
+    "monitor_territory": {
+      "count": 172,
+      "sha256": "f7d5eb2bae8659b8b3619ab24d6258f45b21f8495041d91b4c5671bd58ca8871"
+    }
+  },
+  "files": {
+    "sources/0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb.sdmx": "0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb",
+    "sources/5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5.sdmx": "5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5",
+    "sources/68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb.sdmx": "68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb",
+    "sources/cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d.sdmx": "cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d",
+    "sources/da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552.sdmx": "da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552",
+    "sources/f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8.sdmx": "f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8"
+  }
+}
+
+$ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\pgsql\bin\pg_ctl.exe -D C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\cluster -m fast -w stop
+waiting for server to shut down...... done
+server stopped
+
+$ C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\pgsql\bin\pg_ctl.exe -D C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\cluster -l C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\pg-portable\server.log -o -h 127.0.0.1 -p 55439 -w start
+waiting for server to start.... done
+server started
+
+$ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py db_fingerprint --check-files
+{
+  "tables": {
+    "auth_group": {
+      "count": 3,
+      "sha256": "1f84760c98a8b965d22d93eb8b90ac8398c9eab9e77d4eece9ecb2ff062a553d"
+    },
+    "auth_group_permissions": {
+      "count": 67,
+      "sha256": "e396ae648bf7b7046ab4262016788a76435b4a840c32367f3f20f225c2881f24"
+    },
+    "auth_permission": {
+      "count": 60,
+      "sha256": "bedabb1b0438bcb47851043aa8cbab47dbc0d489179ae9036a485041394c058b"
+    },
+    "auth_user": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "auth_user_groups": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "auth_user_user_permissions": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "django_admin_log": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "django_content_type": {
+      "count": 15,
+      "sha256": "60101bffd1e0ed4e3b66a6a41bd73a6413aaa9bab0780ebdfd324e4b8d17d686"
+    },
+    "django_session": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "monitor_dimension": {
+      "count": 13,
+      "sha256": "99ae6797276f04468576aafab3ef3e98363f5a027ed4cf571b6f04b03c6907f9"
+    },
+    "monitor_dimensionvalue": {
+      "count": 18,
+      "sha256": "c3790796f4d13301063d003a521d49f5d561e35aa389c56ec3d227e617c3384c"
+    },
+    "monitor_importrun": {
+      "count": 2,
+      "sha256": "53bf1c8b22a70bdfd16620b848a25b4b958c663dc7e12f81ac8e3aa05943a2de"
+    },
+    "monitor_indicator": {
+      "count": 6,
+      "sha256": "3b1c5cb9e42508fe3368d23fb138c55703de98a26ac160c35f0069f6b9197709"
+    },
+    "monitor_observation": {
+      "count": 6792,
+      "sha256": "875457150abda1e922740ad296941922bef8e07c63aa36bc4fe5b50f011ef369"
+    },
+    "monitor_period": {
+      "count": 20,
+      "sha256": "458ef125576783d7bc394452dc894be605cc6989a3bffb3434382e1c996cddea"
+    },
+    "monitor_program": {
+      "count": 2,
+      "sha256": "29d6b62a7349ed44113dcd740d8b8c338a96bccf7b351b9b1ecaf2f5f4f885dc"
+    },
+    "monitor_sourcefile": {
+      "count": 6,
+      "sha256": "678d0305b3b5318c0932835058089f43a6fc466874d567752e6d650ddc830f48"
+    },
+    "monitor_territory": {
+      "count": 172,
+      "sha256": "f7d5eb2bae8659b8b3619ab24d6258f45b21f8495041d91b4c5671bd58ca8871"
     }
   },
   "files": {
@@ -510,9 +343,9 @@ $ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python
 }
 
 $ C:\Users\Genus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe C:\Users\Genus\Documents\Codex\2026-10-25\files-pasted-by-the-user-c\work\run_postgres.py test monitor --noinput --verbosity 2
-Creating test database for alias 'default' ('test_monitor_integrated_170233_ci')...
+Creating test database for alias 'default' ('test_monitor_integrated_175206_ci')...
 
-Found 58 test(s).
+Found 54 test(s).
 Operations to perform:
   Synchronize unmigrated apps: messages, staticfiles
   Apply all migrations: admin, auth, contenttypes, monitor, sessions
@@ -539,6 +372,7 @@ Running migrations:
   Applying auth.0012_alter_user_first_name_max_length... OK
   Applying monitor.0001_initial... OK
   Applying monitor.0002_exact_numeric... OK
+  Applying monitor.0003_native_decimal... OK
   Applying sessions.0001_initial...test_anonymous_and_unassigned_access (monitor.test_access_api.AccessApiScenarioTests.test_anonymous_and_unassigned_access) ... Unauthorized: /api/v1/indicators/
 Forbidden (Permission denied): /explore/
 Traceback (most recent call last):
@@ -605,12 +439,8 @@ django.core.exceptions.PermissionDenied
 Method Not Allowed (POST): /api/v1/observations/
 ok
 test_trusted_tls_ingress_does_not_redirect_https_requests (monitor.test_access_api.AccessApiScenarioTests.test_trusted_tls_ingress_does_not_redirect_https_requests) ... ok
-test_cancelled_creation_never_claims_that_account_exists (monitor.test_bootstrap.LocalBootstrapAccountTests.test_cancelled_creation_never_claims_that_account_exists) ... ok
-test_disabled_no_password_and_unauthorised_users_do_not_block_first_account (monitor.test_bootstrap.LocalBootstrapAccountTests.test_disabled_no_password_and_unauthorised_users_do_not_block_first_account) ... ok
-test_existing_reader_is_kept_without_password_prompt (monitor.test_bootstrap.LocalBootstrapAccountTests.test_existing_reader_is_kept_without_password_prompt) ... ok
-test_first_admin_uses_interactive_django_creation (monitor.test_bootstrap.LocalBootstrapAccountTests.test_first_admin_uses_interactive_django_creation) ... ok
 test_exact_number_roundtrip_and_missing_value (monitor.test_infra.ExactStorageTests.test_exact_number_roundtrip_and_missing_value) ... ok
-test_nonfinite_numbers_rejected (monitor.test_infra.ExactStorageTests.test_nonfinite_numbers_rejected) ... ok
+test_nonfinite_and_excess_precision_rejected (monitor.test_infra.ExactStorageTests.test_nonfinite_and_excess_precision_rejected) ... ok
 test_conflicting_time_and_period_quarter_is_rejected (monitor.test_okfs.OkfsAuditTests.test_conflicting_time_and_period_quarter_is_rejected) ... ok
 test_independent_all_six_xml_counts_and_okfs_reference (monitor.test_okfs.OkfsAuditTests.test_independent_all_six_xml_counts_and_okfs_reference) ... ok
 test_199_and_200_are_separate_and_unused_codes_not_in_observed_dictionary (monitor.test_okfs.OkfsStorageTests.test_199_and_200_are_separate_and_unused_codes_not_in_observed_dictionary) ... ok
@@ -643,7 +473,7 @@ test_each_provided_file_and_independent_counts (monitor.tests.ParserSafetyTests.
 test_missing_and_status_and_high_precision (monitor.tests.ParserSafetyTests.test_missing_and_status_and_high_precision) ... ok
 test_quarter_and_ownership_are_preserved (monitor.tests.ParserSafetyTests.test_quarter_and_ownership_are_preserved) ... ok
 test_zip_paths_depth_and_limits (monitor.tests.ParserSafetyTests.test_zip_paths_depth_and_limits) ... ok
-test_transfer_preserves_actual_data_users_edits_history_and_sequences (monitor.test_infra.PostgreSQLTransferTests.test_transfer_preserves_actual_data_users_edits_history_and_sequences) ... ok
+test_existing_postgres_rows_survive_upgrade (monitor.test_migrations.NativeDecimalMigrationTests.test_existing_postgres_rows_survive_upgrade) ... ok
 test_all_empty_charts_explain_absence (monitor.test_visualizations.ChartArithmeticTests.test_all_empty_charts_explain_absence) ... ok
 test_boxplot_r7_quartiles_whiskers_outlier_and_count (monitor.test_visualizations.ChartArithmeticTests.test_boxplot_r7_quartiles_whiskers_outlier_and_count) ... ok
 test_boxplot_zero_and_missing_and_constant_values (monitor.test_visualizations.ChartArithmeticTests.test_boxplot_zero_and_missing_and_constant_values) ... ok
@@ -658,10 +488,10 @@ test_scatter_rejects_incompatible_extra_dimensions_and_missing_axis_period (moni
 test_scatter_requires_two_paired_numeric_territories (monitor.test_visualizations.ChartArithmeticTests.test_scatter_requires_two_paired_numeric_territories) ... ok
 
 ----------------------------------------------------------------------
-Ran 58 tests in 33.899s
+Ran 54 tests in 29.501s
 
 OK
-Destroying test database for alias 'default' ('test_monitor_integrated_170233_ci')...
+Destroying test database for alias 'default' ('test_monitor_integrated_175206_ci')...
 
  OK
 System check identified no issues (0 silenced).

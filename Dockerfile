@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt \
     && useradd --uid 10001 --gid monitor --no-create-home --shell /usr/sbin/nologin monitor
 COPY . .
 RUN mkdir -p /app/data /app/staticfiles \
-    && python manage.py collectstatic --noinput \
+    && POSTGRES_DB=build POSTGRES_APP_USER=build POSTGRES_APP_PASSWORD=build-only POSTGRES_HOST=unavailable python manage.py collectstatic --noinput \
     && chown -R 10001:10001 /app/data
 USER 10001:10001
 EXPOSE 8000

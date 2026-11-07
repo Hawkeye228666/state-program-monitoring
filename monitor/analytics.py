@@ -122,7 +122,7 @@ def dumbbell(rows, params):
             result['excluded'].append({'code': code, 'name': name, 'reason': 'нет числового значения в одном или обоих периодах'})
             continue
         result['points'].append({'code': code, 'name': name, 'start': _text(_number(a)),
-                                 'end': _text(_number(b)), 'change': _text(_number(b) - _number(a))})
+                                 'end': _text(_number(b)), 'change': format((_number(b) - _number(a)).normalize(),'f')})
     result['n'] = len(result['points'])
     if not result['n']:
         result['reason'] = 'Нет территорий с числовыми значениями в обоих периодах. Пропуски не заменены нулями.'

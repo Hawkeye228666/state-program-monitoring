@@ -2,7 +2,7 @@ import json
 from decimal import Decimal
 from django.conf import settings
 from django.db import models
-from .fields import ExactNumericTextField
+
 
 class Program(models.Model):
     slug = models.SlugField(unique=True)
@@ -83,8 +83,7 @@ class Observation(models.Model):
     dimension_key = models.CharField(max_length=64)
     dimensions = models.JSONField(default=dict)
     dimension_labels = models.JSONField(default=dict)
-    # PostgreSQL NUMERIC; SQLite TEXT сохраняет точность без преобразования в float.
-    numeric_text = ExactNumericTextField(null=True,blank=True)
+    numeric_value = models.DecimalField(max_digits=80, decimal_places=30, null=True, blank=True)
     raw_value = models.TextField(blank=True)
     status = models.JSONField(default=dict)
     attributes = models.JSONField(default=dict)
@@ -94,7 +93,12 @@ class Observation(models.Model):
         constraints=[models.UniqueConstraint(fields=['indicator','territory','period','dimension_key'],name='unique_observation_full_key')]
         indexes=[models.Index(fields=['indicator','period','territory']),models.Index(fields=['territory','period'])]
     @property
-    def number(self): return Decimal(self.numeric_text) if self.numeric_text is not None else None
+    def number(self): return self.numeric_value
+    @property
+    def numeric_text(self):
+        if self.numeric_value is None:return None
+        value=format(self.numeric_value,'f')
+        return (value.rstrip('0').rstrip('.') if '.' in value else value) or '0'
     @property
     def display(self): return self.raw_value if self.raw_value else 'нет данных'
     @property
