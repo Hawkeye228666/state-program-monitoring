@@ -1,5 +1,6 @@
-"""Create a local Compose .env exclusively; never print or overwrite secrets."""
+"""Configure local Compose secrets; preserve every nonempty existing value."""
 import os
+import re
 from pathlib import Path
 import secrets
 
@@ -7,20 +8,28 @@ import secrets
 def main():
     root = Path(__file__).resolve().parent.parent
     target = root / '.env'
-    template = (root / '.env.example').read_text(encoding='utf-8-sig')
+    exists = target.exists()
+    template = (target if exists else root / '.env.example').read_text(encoding='utf-8-sig')
+    changed = False
     for key in ('DJANGO_SECRET_KEY', 'POSTGRES_ADMIN_PASSWORD', 'POSTGRES_APP_PASSWORD'):
         token = secrets.token_urlsafe(48)
-        marker = key + '=\n'
-        if marker not in template:
-            raise SystemExit('В .env.example отсутствует пустое поле ' + key)
-        template = template.replace(marker, key + '=' + token + '\n', 1)
-    try:
-        descriptor = os.open(target, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
-    except FileExistsError:
-        raise SystemExit('.env уже существует. Файл и его секреты сохранены; повторная генерация не выполнена.')
+        pattern = r'^' + key + r'=([^\n]*)$'
+        match = re.search(pattern, template, re.M)
+        if match and match[1].strip() not in ('', '""', "''"):
+            continue
+        if match:
+            template = re.sub(pattern, key + '=' + token, template, flags=re.M)
+        else:
+            template = template.rstrip('\n') + '\n' + key + '=' + token + '\n'
+        changed = True
+    if not changed:
+        print('.env уже настроен. Существующие секреты сохранены.')
+        return
+    flags = os.O_WRONLY | (os.O_TRUNC if exists else os.O_CREAT | os.O_EXCL)
+    descriptor = os.open(target, flags, 0o600)
     with os.fdopen(descriptor, 'w', encoding='utf-8', newline='\n') as output:
         output.write(template)
-    print('Создан .env с тремя независимыми секретами. Значения не выводятся; не добавляйте файл в Git.')
+    print('.env настроен. Непустые секреты сохранены; недостающие сгенерированы. Значения не выводятся.')
 
 
 if __name__ == '__main__':

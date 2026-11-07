@@ -1,6 +1,14 @@
 name: PostgreSQL and Compose checks
 on: [push, pull_request]
 jobs:
+  windows-startup:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - run: python scripts/check_startup.py
   postgresql:
     runs-on: ubuntu-24.04
     services:
@@ -42,15 +50,20 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - name: Generate ephemeral CI secrets
+      - name: Verify fresh ZIP configuration and Windows-compatible generator
+        run: python scripts/check_startup.py
+      - name: First start without a pre-created .env (real Compose)
+        shell: pwsh
+        run: ./scripts/start.ps1 -NoBrowser -SkipAdmin
+      - name: Repeat launcher preserves credentials, data and metadata
+        shell: pwsh
         run: |
-          python - <<'PY'
-          import secrets
-          from pathlib import Path
-          Path('.env').write_text(''.join(f'{key}={secrets.token_urlsafe(48)}\n' for key in ['DJANGO_SECRET_KEY','POSTGRES_ADMIN_PASSWORD','POSTGRES_APP_PASSWORD']))
-          PY
-      - run: docker compose config --quiet
-      - run: docker compose up --build -d --wait app
+          $before = (Get-FileHash .env).Hash
+          docker compose exec -T app python manage.py db_fingerprint --check-files > first-start.json
+          ./scripts/start.ps1 -NoBrowser -SkipAdmin
+          if ((Get-FileHash .env).Hash -ne $before) { throw 'Credentials changed' }
+          docker compose exec -T app python manage.py db_fingerprint --check-files > second-start.json
+          if ((Get-FileHash first-start.json).Hash -ne (Get-FileHash second-start.json).Hash) { throw 'Data changed' }
       - name: Verify unprivileged process, static serving and clean Gunicorn startup
         run: |
           docker compose exec -T app python -c "import os; assert os.geteuid() == 10001"
