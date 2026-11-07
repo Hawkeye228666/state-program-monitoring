@@ -2,7 +2,7 @@
 
 ## Архитектура и версии
 
-Compose содержит PostgreSQL `postgres:17.11-trixie`, однократный сервис миграций и приложение на Gunicorn. Python закреплён как `python:3.12.15-slim-trixie`. Приложение работает под UID/GID 10001 с файловой системой только для чтения, томом источников `/app/data` и временным каталогом. Gunicorn26.2.2 пишет access/error logs в стандартные потоки. Неиспользуемый control socket отключён флагом --no-control-socket: управление процессом выполняется Docker, а корневая файловая система остаётся read-only. WhiteNoise выдаёт локальную статику, подготовленную collectstatic при сборке. Reverse proxy для локального пилота не требуется. TLS и доверенный ingress организации согласуются отдельно.
+Compose содержит PostgreSQL `postgres:17.11-trixie`, однократный сервис миграций и приложение на Gunicorn. Python закреплён как `python:3.12.15-slim-trixie`. Приложение работает под UID/GID 10001 с файловой системой только для чтения, томом источников `/app/data` и временным каталогом. Gunicorn26.2.0 пишет access/error logs в стандартные потоки. Неиспользуемый control socket отключён флагом --no-control-socket: управление процессом выполняется Docker, а корневая файловая система остаётся read-only. WhiteNoise выдаёт локальную статику, подготовленную collectstatic при сборке. Reverse proxy для локального пилота не требуется. TLS и доверенный ingress организации согласуются отдельно.
 
 Теги проверены по [официальному образу Python](https://hub.docker.com/_/python) и [официальному образу PostgreSQL](https://hub.docker.com/_/postgres). Для PostgreSQL 17 именованный том монтируется в `/var/lib/postgresql/data`. Изменение пути PGDATA в PostgreSQL 18 к этой версии не применяется. Обновление major-версии требует отдельного переноса данных.
 
