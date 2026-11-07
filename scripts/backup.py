@@ -21,7 +21,7 @@ def main():
     try:
         before = fingerprint()
         compose('exec', '-T', 'db', 'sh', '-ec',
-            'PGPASSWORD="$POSTGRES_PASSWORD" pg_dump -h 127.0.0.1 -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc --no-owner --no-privileges -f "/backups/$1"', 'sh', name)
+            'pg_dump -h /var/run/postgresql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -Fc --no-owner --no-privileges -f "/backups/$1"', 'sh', name)
         compose('cp', 'db:/backups/' + name, target / 'database.dump')
         compose('cp', 'app:/app/data', target / 'media')
         (target / 'fingerprint.json').write_text(json.dumps(before, ensure_ascii=False, indent=2), encoding='utf-8')

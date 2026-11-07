@@ -18,11 +18,11 @@ def main():
     expected = json.loads((backup / 'fingerprint.json').read_text(encoding='utf-8'))
     # A fresh database is mandatory. CREATE DATABASE fails if the name already exists.
     compose('exec', '-T', 'db', 'sh', '-ec',
-        '[ "$1" != "$POSTGRES_DB" ] || { echo "Refusing to overwrite active database" >&2; exit 1; }; PGPASSWORD="$POSTGRES_PASSWORD" createdb -h 127.0.0.1 -U "$POSTGRES_USER" -O "$POSTGRES_APP_USER" "$1"', 'sh', target)
+        '[ "$1" != "$POSTGRES_DB" ] || { echo "Refusing to overwrite active database" >&2; exit 1; }; createdb -h /var/run/postgresql -U "$POSTGRES_USER" -O "$POSTGRES_APP_USER" "$1"', 'sh', target)
     dump = 'restore-' + target + '.dump'
     compose('cp', backup / 'database.dump', 'db:/backups/' + dump)
     compose('exec', '-T', 'db', 'sh', '-ec',
-        'PGPASSWORD="$POSTGRES_PASSWORD" pg_restore -h 127.0.0.1 -U "$POSTGRES_USER" --role="$POSTGRES_APP_USER" --no-owner --no-privileges --exit-on-error -d "$1" "/backups/$2"', 'sh', target, dump)
+        'pg_restore -h /var/run/postgresql -U "$POSTGRES_USER" --role="$POSTGRES_APP_USER" --no-owner --no-privileges --exit-on-error -d "$1" "/backups/$2"', 'sh', target, dump)
     actual = fingerprint(target, backup / 'media')
     if expected != actual:
         raise RuntimeError('Restored database or source-file fingerprint differs from backup; do not switch the application.')

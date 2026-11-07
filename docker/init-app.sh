@@ -10,7 +10,7 @@ if [ "$POSTGRES_APP_USER" = "$POSTGRES_USER" ]; then
   echo 'Application and administrator roles must be different.' >&2
   exit 1
 fi
-psql --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" --set=ON_ERROR_STOP=1 \
+psql --host=/var/run/postgresql --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" --set=ON_ERROR_STOP=1 \
   --set=app_user="$POSTGRES_APP_USER" --set=app_password="$POSTGRES_APP_PASSWORD" --set=db_name="$POSTGRES_DB" <<'SQL'
 SELECT format('CREATE ROLE %I LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE', :'app_user')
 WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = :'app_user')
