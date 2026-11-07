@@ -1,4 +1,4 @@
-name: РџСЂРѕРІРµСЂРєРё Django Рё PostgreSQL
+name: PostgreSQL and Compose checks
 on: [push, pull_request]
 jobs:
   postgresql:
