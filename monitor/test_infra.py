@@ -1,4 +1,5 @@
 """Storage and real SQLite-to-PostgreSQL integration tests."""
+from contextlib import closing
 import hashlib
 import json
 import os
@@ -67,7 +68,7 @@ class PostgreSQLTransferTests(TransactionTestCase):
             subprocess.run([sys.executable, 'manage.py', 'migrate', '--noinput'], cwd=settings.BASE_DIR, env=env, check=True, capture_output=True, timeout=60)
             code = "from django.contrib.auth.models import User,Group,Permission; from monitor.models import Program,ImportRun; u=User.objects.create_user('legacy-transfer-user',password='test-only-password'); g=Group.objects.create(name='legacy-custom-group'); g.permissions.add(Permission.objects.get(codename='view_observation')); u.groups.add(g); Program.objects.filter(slug='housing').update(summary='Legacy user-edited metadata'); ImportRun.objects.create(actor=u,status='error',message='Historical failure preserved')"
             subprocess.run([sys.executable, 'manage.py', 'shell', '-c', code], cwd=settings.BASE_DIR, env=env, check=True, capture_output=True, timeout=60)
-            with sqlite3.connect(source) as raw:
+            with closing(sqlite3.connect(source)) as raw:
                 original_joined = datetime.fromisoformat(raw.execute("SELECT date_joined FROM auth_user WHERE username='legacy-transfer-user'").fetchone()[0]).replace(tzinfo=timezone.utc)
             with override_settings(MEDIA_ROOT=temp/'new-media'):
                 report = transfer_sqlite(source, temp/'backups', settings.BASE_DIR/'data')

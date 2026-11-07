@@ -1,0 +1,16 @@
+{
+  "source": "Django test client real response; only assets inlined and CSRF token removed",
+  "urls": {
+    "home": "/",
+    "quarters": "/explore/?program=science&indicator=44198&regions=643&dim_s_OKFS=200&periods=2014-Q1&periods=2014-Q3&compare_start=2014-Q1&compare_end=2014-Q3",
+    "distribution": "/explore/?program=housing&indicator=43537&level=subject&periods=2012&periods=2020&compare_start=2012&compare_end=2020&chart_period=2020&regions=01000000000&regions=03000000000&regions=04000000000&regions=05000000000&regions=07000000000",
+    "scatter": "/explore/?program=housing&mode=all&level=subject&periods=2014&scatter_x=43512&scatter_y=43537&chart_period=2014&regions=01000000000&regions=03000000000&regions=04000000000&regions=05000000000&regions=07000000000"
+  },
+  "regions": [
+    "01000000000",
+    "03000000000",
+    "04000000000",
+    "05000000000",
+    "07000000000"
+  ]
+}

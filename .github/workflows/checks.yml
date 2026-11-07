@@ -50,6 +50,12 @@ jobs:
           PY
       - run: docker compose config --quiet
       - run: docker compose up --build -d --wait app
+      - name: Verify unprivileged process, static serving and clean Gunicorn startup
+        run: |
+          docker compose exec -T app python -c "import os; assert os.geteuid() == 10001"
+          curl --fail --silent --show-error --output /dev/null http://127.0.0.1:8000/static/monitor/app.css
+          docker compose logs --no-color app > app.log
+          python -c "from pathlib import Path; assert 'Control server error' not in Path('app.log').read_text()"
       - name: Transfer actual SQLite database with independent backup and full-row checks
         run: |
           mkdir -p transfer

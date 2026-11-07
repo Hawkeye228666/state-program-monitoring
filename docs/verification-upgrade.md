@@ -1,6 +1,6 @@
 # Проверки доработок
 
-Дата: 7 ноября 2026 года. Текущие исходники: feature/postgres-okfs-analytics. Итог CI и PostgreSQL будет дополнен после завершения прогона; наличие workflow не считается результатом проверки.
+Дата: 7 ноября 2026 года. Текущие исходники: feature/postgres-okfs-analytics. Ниже разделены выполненные локальные проверки и отдельная проверка контейнеров в CI. Наличие workflow само по себе не считается результатом проверки.
 
 ## Выполнено локально
 
@@ -15,9 +15,9 @@
 
 ## PostgreSQL и контейнеры
 
-Проверки настоящего PostgreSQL17.11 выполняются отдельно; протоколы pg-verification.json и pg-verification.log. Проверены перенос реальных6792строк, источников, сверка всех полей, FK/последовательностей, pg_dump/pg_restore в отдельную БД, повторный импорт и перезапуск PostgreSQL. Это не заменяет контейнерную проверку. Финальный статус полной PostgreSQL-серии приводится после её завершения.
+Выполнены проверки настоящего PostgreSQL17.11, CPython3.12.14, Django5.2.19: все58тестов прошли за33,899с без пропусков; протоколы pg-verification.json и pg-verification.log. Проверены перенос реальных6792строк, источников, сверка всех полей, FK/последовательностей, pg_dump/pg_restore в отдельную БД, повторный импорт и перезапуск PostgreSQL. Это не заменяет контейнерную проверку. Дополнительная копия SQLite с тестовым пользователем сохранила password hash, группы/права, правку метаданных, историю с оператором и точное UTC-время. Последовательности проверены реальными вставками. Сервер PostgreSQL после проверок остановлен.
 
-Docker CLI/Engine на локальном Windows-хосте не обнаружены. Сборка, Compose healthchecks, Gunicorn/WhiteNoise и сохранность после пересоздания контейнеров предусмотрены в CI и пока не объявляются выполненными. Конфигурация YAML проверена синтаксически; этот факт не равен docker compose up.
+Docker CLI/Engine на локальном Windows-хосте не обнаружены. Эти проверки фактически выполнены в GitHub Actions на Ubuntu24.04: сборка образа, docker compose config/up --build --wait, готовность, перенос6792строк, backup/restore в отдельную БД и совпадение fingerprints до/после force-recreate. Оба задания compose/postgresql успешны. PostgreSQL в CI:58тестов за31,598с, без пропусков. Протоколы: ci-verification.json, ci-compose.log, ci-postgresql.log. При разборе логов обнаружен неиспользуемый control socket Gunicorn в read-only каталоге; он отключён, дополнительный прогон проверяет чистый старт, UID10001 и HTTP-выдачу статики.
 
 ## Ограничение проверки интерфейса
 
@@ -28,3 +28,7 @@ Docker CLI/Engine на локальном Windows-хосте не обнаруж
 ## Материалы
 
 Документы: baseline.md, okfs-audit.md, visualizations.md, operations.md, integration-mosstat.md, api.md. Презентация и речь: deliverables/. Предложение Мосстату не является состоявшимся внедрением. Внешний корпоративный API/SSO не реализован и не заявлен.
+
+## Pull request
+
+[PR #2](https://github.com/Hawkeye228666/state-program-monitoring/pull/2), отдельная ветка feature/postgres-okfs-analytics. База PR — предшествующая ветка с полным проектом feature/program-monitoring. Слияние не выполнялось. [GitHub Actions42395085760](https://github.com/Hawkeye228666/state-program-monitoring/actions/runs/42395085760): compose и postgresql завершились success. Проверка текущей версии с отключённым control socket дополнительно контролирует UID10001, HTTP-статику и отсутствие этой ошибки в журнале. Её статус доступен на странице проверок PR.

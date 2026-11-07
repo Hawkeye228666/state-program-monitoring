@@ -1,7 +1,7 @@
 {
-  "time": "2026-11-07T17:00:20.847769+00:00",
-  "database": "monitor_integrated_170020",
-  "restore_database": "monitor_integrated_170020_restore",
+  "time": "2026-11-07T17:02:33.659064+00:00",
+  "database": "monitor_integrated_170233",
+  "restore_database": "monitor_integrated_170233_restore",
   "docker_available": false,
   "limitations": [
     "Docker executable/engine unavailable: Compose build, container health and container recreation remain unverified locally. Native PostgreSQL restart was verified separately."
@@ -14,7 +14,7 @@
     false
   ],
   "sqlite_transfer": {
-    "snapshot": "C:\\Users\\Genus\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-c\\work\\pg-transfer\\sqlite-before-transfer-20261107T170028874311Z.sqlite3",
+    "snapshot": "C:\\Users\\Genus\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-c\\work\\pg-transfer\\sqlite-before-transfer-20261107T170241917560Z.sqlite3",
     "snapshot_sha256": "7f18901e2cef1b8d77ec58df82c4947edb7080d900c10b80e35a7c5ecbda33ac",
     "tables": {
       "django_content_type": {
@@ -77,7 +77,7 @@
     "status": "success",
     "foreign_keys": "checked",
     "sequences": "reset to max(pk)",
-    "report": "C:\\Users\\Genus\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-c\\work\\pg-transfer\\transfer-report-20261107T170028874311Z.json"
+    "report": "C:\\Users\\Genus\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-c\\work\\pg-transfer\\transfer-report-20261107T170241917560Z.json"
   },
   "before_backup": {
     "tables": {
@@ -168,5 +168,21 @@
   "postgres_restart_fingerprint_equal": true,
   "fresh_xml_import_log": "{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1304}}, 'file': 'data_43512.sdmx', 'file_id': '43512', 'header_id': '260375071', 'dataset_id': '9420013', 'program': 'housing', 'added': 1304, 'updated': 0, 'skipped': 0, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 860}}, 'file': 'data_43537.sdmx', 'file_id': '43537', 'header_id': '262658965', 'dataset_id': '9420036', 'program': 'housing', 'added': 860, 'updated': 0, 'skipped': 0, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1024}}, 'file': 'data_43563.sdmx', 'file_id': '43563', 'header_id': '264894434', 'dataset_id': '9420058', 'program': 'housing', 'added': 1024, 'updated': 0, 'skipped': 0, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1045}}, 'file': 'data_43586.sdmx', 'file_id': '43586', 'header_id': '266501725', 'dataset_id': '9420043', 'program': 'science', 'added': 1045, 'updated': 0, 'skipped': 0, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1333}}, 'file': 'data_43587.sdmx', 'file_id': '43587', 'header_id': '266504719', 'dataset_id': '9420042', 'program': 'science', 'added': 1333, 'updated': 0, 'skipped': 0, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'known': 1226}}, 'file': 'data_44198.sdmx', 'file_id': '44198', 'header_id': '274459040', 'dataset_id': '9430020', 'program': 'science', 'added': 1226, 'updated': 0, 'skipped': 0, 'errors': 0}\nДобавлено: 6792; обновлено: 0; пропущено: 0; ошибок: 0\n",
   "repeat_xml_import_log": "{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1304}}, 'file': 'data_43512.sdmx', 'file_id': '43512', 'header_id': '260375071', 'dataset_id': '9420013', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 1304, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 860}}, 'file': 'data_43537.sdmx', 'file_id': '43537', 'header_id': '262658965', 'dataset_id': '9420036', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 860, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1024}}, 'file': 'data_43563.sdmx', 'file_id': '43563', 'header_id': '264894434', 'dataset_id': '9420058', 'program': 'housing', 'added': 0, 'updated': 0, 'skipped': 1024, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1045}}, 'file': 'data_43586.sdmx', 'file_id': '43586', 'header_id': '266501725', 'dataset_id': '9420043', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1045, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'absent': 1333}}, 'file': 'data_43587.sdmx', 'file_id': '43587', 'header_id': '266504719', 'dataset_id': '9420042', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1333, 'errors': 0}\n{'diagnostics': [], 'dimension_states': {'s_OKFS': {'known': 1226}}, 'file': 'data_44198.sdmx', 'file_id': '44198', 'header_id': '274459040', 'dataset_id': '9430020', 'program': 'science', 'added': 0, 'updated': 0, 'skipped': 1226, 'errors': 0}\nДобавлено: 0; обновлено: 0; пропущено: 6792; ошибок: 0\n",
-  "fresh_import_observations": 6792
+  "fresh_import_observations": 6792,
+  "full_test_suite": "passed",
+  "status": "success",
+  "tests": {
+    "run": 58,
+    "passed": 58,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 33.899
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "django": "5.2.19",
+    "psycopg": "3.3.8"
+  },
+  "compose_yaml_static_validation": "Parsed with PyYAML6.0.3; three services, no DB host port, migration completion dependency checked. Docker Compose CLI was unavailable.",
+  "legacy_canary_transfer": "Test PostgreSQLTransferTests passed: legacy user/password hash, group permissions, edited program summary, actor-linked import history, exact UTC date_joined, source files, next user ID."
 }

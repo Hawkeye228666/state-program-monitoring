@@ -2,7 +2,7 @@
 
 ## Архитектура и версии
 
-Compose содержит PostgreSQL `postgres:17.11-trixie`, однократный сервис миграций и приложение на Gunicorn. Python закреплён как `python:3.12.15-slim-trixie`. Приложение работает под UID/GID 10001 с файловой системой только для чтения, томом источников `/app/data` и временным каталогом. Gunicorn пишет access/error logs в стандартные потоки. WhiteNoise выдаёт локальную статику, подготовленную collectstatic при сборке. Reverse proxy для локального пилота не требуется. TLS и доверенный ingress организации согласуются отдельно.
+Compose содержит PostgreSQL `postgres:17.11-trixie`, однократный сервис миграций и приложение на Gunicorn. Python закреплён как `python:3.12.15-slim-trixie`. Приложение работает под UID/GID 10001 с файловой системой только для чтения, томом источников `/app/data` и временным каталогом. Gunicorn26.2.2 пишет access/error logs в стандартные потоки. Неиспользуемый control socket отключён флагом --no-control-socket: управление процессом выполняется Docker, а корневая файловая система остаётся read-only. WhiteNoise выдаёт локальную статику, подготовленную collectstatic при сборке. Reverse proxy для локального пилота не требуется. TLS и доверенный ingress организации согласуются отдельно.
 
 Теги проверены по [официальному образу Python](https://hub.docker.com/_/python) и [официальному образу PostgreSQL](https://hub.docker.com/_/postgres). Для PostgreSQL 17 именованный том монтируется в `/var/lib/postgresql/data`. Изменение пути PGDATA в PostgreSQL 18 к этой версии не применяется. Обновление major-версии требует отдельного переноса данных.
 
@@ -96,3 +96,7 @@ docker compose stop
 pg-verification.json и pg-verification.log фиксируют нативный PostgreSQL 17.11: миграции, перенос существующих 6792 наблюдений, полные fingerprints, pg_dump/pg_restore в отдельную БД, последовательности, сохранность после перезапуска PostgreSQL, свежий импорт шести XML и повтор, тесты. Интеграционный тест дополнительно переносит копию SQLite с тестовым пользователем, password hash, группой и правами, пользовательской правкой метаданных и историческим импортом с actor, проверяет неизменность UTC-времени.
 
 Docker CLI/Engine на этом Windows-хосте отсутствуют. Локально не проверены сборка образа, запуск Compose, healthchecks контейнеров, выдача статики через Gunicorn и сохранность после пересоздания контейнеров. Перезапуск нативного PostgreSQL не считается этой проверкой. В CI предусмотрены PostgreSQL service и Compose: сборка, health, перенос, backup/restore и fingerprints до/после force-recreate. Наличие YAML не означает успешный запуск CI.
+
+## Проверка контейнеров в GitHub Actions
+
+Прогон [42395085760](https://github.com/Hawkeye228666/state-program-monitoring/actions/runs/42395085760) успешно выполнил сборку/Compose health, перенос, backup/restore и сравнение до/после force-recreate. PostgreSQL service также прошёл58тестов. Локальный Docker при этом отсутствует. При разборе логов обнаружена попытка Gunicorn создать неиспользуемый control socket в read-only /home/monitor; socket отключён, новая сборка проверяет отсутствие этой ошибки, UID10001 и выдачуCSS.

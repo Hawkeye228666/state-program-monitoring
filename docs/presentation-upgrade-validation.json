@@ -1,0 +1,335 @@
+{
+  "schemaVersion": "presentation-finalization.v1",
+  "finalSha256": "330b7b3cdcd6ff78910af37403bd53c7cffb8c9b9a20640e82a8a2d88b136313",
+  "byteCount": 62220,
+  "packageIntegrity": {
+    "chart_count": 1,
+    "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
+    "finding_count": 0,
+    "findings": [],
+    "notes_parts_skipped": 12,
+    "relationship_part_count": 35,
+    "slide_count": 12,
+    "status": "pass",
+    "exitCode": 0,
+    "findingCount": 0,
+    "warnings": []
+  },
+  "presentationLayout": {
+    "finding_count": 0,
+    "findings": [],
+    "font_policy": {
+      "checked_text_script_count": 163,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Arial"
+      ],
+      "observed_font_use_counts": {
+        "Arial": 163
+      },
+      "passed": true,
+      "performed": true
+    },
+    "slide_count": 12,
+    "slide_size_in": [
+      13.3333,
+      7.5
+    ],
+    "warning_count": 0,
+    "warnings": [],
+    "exitCode": 0,
+    "findingCount": 0,
+    "fontPolicy": {
+      "checked_text_script_count": 163,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Arial"
+      ],
+      "observed_font_use_counts": {
+        "Arial": 163
+      },
+      "passed": true,
+      "performed": true
+    }
+  },
+  "fontSelection": {
+    "basis": "design",
+    "approvedFamilies": [
+      "Arial"
+    ],
+    "scriptFonts": {},
+    "referenceSha256": null,
+    "referenceFontsVerifiedInEncodedText": false,
+    "checked_text_script_count": 163,
+    "native_font_rendering_verified": false,
+    "observed_font_families": [
+      "Arial"
+    ],
+    "observed_font_use_counts": {
+      "Arial": 163
+    },
+    "passed": true,
+    "performed": true
+  },
+  "firstPartyImport": {
+    "performed": true,
+    "passed": true,
+    "slideCount": 12,
+    "sha256": "330b7b3cdcd6ff78910af37403bd53c7cffb8c9b9a20640e82a8a2d88b136313",
+    "runtimeNodeModules": "C:\\Users\\Genus\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\node_modules",
+    "nodeExecutable": "C:\\Users\\Genus\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe"
+  },
+  "nativeTableArithmetic": {
+    "performed": true,
+    "checked_column_count": 0,
+    "checks": [],
+    "claim_boundary": "Displayed-value arithmetic with rounding tolerance; not source-data verification.",
+    "eligible_table_count": 0,
+    "finding_count": 0,
+    "findings": [],
+    "native_table_count": 4,
+    "passed": true,
+    "schema_version": "presentation-native-table-arithmetic.v1",
+    "skipped_tables": [
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 4,
+        "table": 1
+      },
+      {
+        "reason": "no_unambiguous_bottom_total",
+        "slide": 6,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 8,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 9,
+        "table": 1
+      }
+    ],
+    "slide_count": 12,
+    "warning_count": 0,
+    "warnings": []
+  },
+  "nativeChartTitles": {
+    "performed": true,
+    "checks": [
+      {
+        "chart": 1,
+        "slide": 7,
+        "status": "present"
+      }
+    ],
+    "finding_count": 0,
+    "findings": [],
+    "native_chart_count": 1,
+    "native_powerpoint_verified": false,
+    "passed": true,
+    "presentation_sha256": "330b7b3cdcd6ff78910af37403bd53c7cffb8c9b9a20640e82a8a2d88b136313",
+    "schema_version": "presentation-native-chart-titles.v1",
+    "slide_count": 12,
+    "source_text_emitted": false,
+    "unresolved_linked_title_count": 0
+  },
+  "sourceDerivedPolicyFlags": [
+    "--expected-slide-size-emu",
+    "12192000,6858000",
+    "--validate-bullet-geometry",
+    "--validate-heading-fit",
+    "--require-native-table-slide",
+    "4",
+    "--require-native-table-slide",
+    "6",
+    "--require-native-table-slide",
+    "8",
+    "--require-native-table-slide",
+    "9",
+    "--cover-role",
+    "none",
+    "--expected-slide-count",
+    "12",
+    "--approved-font-family",
+    "Arial"
+  ],
+  "nativeChartValidation": {
+    "detectedOwnerSlides": [
+      7
+    ],
+    "detectedChartCount": 1,
+    "targetApplication": "portable",
+    "sourceChartOwnersExplicitlyDeclared": true,
+    "validatorRan": true,
+    "passed": true
+  },
+  "nativeQuantitativeCharts": {
+    "report": {
+      "claim_boundary": "OOXML/workbook structural validation only; source provenance and native PowerPoint opening remain separate checks.",
+      "expected_quantitative_chart_slides": [
+        7
+      ],
+      "failed_slide_count": 0,
+      "failed_slides": [],
+      "formal_human_reviewed": false,
+      "native_application_open_verified": false,
+      "package_sha256": "330b7b3cdcd6ff78910af37403bd53c7cffb8c9b9a20640e82a8a2d88b136313",
+      "passed": true,
+      "results": [
+        {
+          "approved_source_figure_exception": false,
+          "charts": [
+            {
+              "cache_reference_ranges_verified": true,
+              "embedded_workbook_count": 1,
+              "embedded_workbook_sheet_count": 1,
+              "native_chart_types": [
+                "lineChart"
+              ],
+              "numeric_cache_point_count": 3,
+              "series_formula_count": 2,
+              "workbook_numeric_cell_count": 3
+            }
+          ],
+          "failure_codes": [],
+          "native_chart_count": 1,
+          "raster_picture_count": 0,
+          "required_native_chart_count": 1,
+          "slide_number": 7,
+          "status": "passed"
+        }
+      ],
+      "schema_version": "owner-private.quantitative-chart-native-gate.v1",
+      "slide_count": 12,
+      "source_attachments_accessed": false,
+      "validated_slide_count": 1
+    },
+    "exitCode": 0,
+    "validatedSlideCount": 1,
+    "requiredOwnerSlides": [
+      7
+    ],
+    "approvedSourceFigureExceptionSlides": []
+  },
+  "delivered_copy": {
+    "path": "C:\\Users\\Genus\\Documents\\Codex\\2026-10-25\\files-pasted-by-the-user-c\\work\\github-upload\\deliverables\\project-upgrade.pptx",
+    "sha256": "330b7b3cdcd6ff78910af37403bd53c7cffb8c9b9a20640e82a8a2d88b136313",
+    "identical_to_validated_file": true
+  },
+  "agent_visual_review": {
+    "performed": true,
+    "slides_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "method": "Artifact Session PNG renders at 1280x720; each slide individually inspected, changed slides re-rendered and inspected",
+    "unintended_clipping_or_overlap_observed": false,
+    "real_application_screenshots": 0,
+    "screenshot_limitation": "Browser environment could not access localhost; Computer Use stopped because current URL could not be reliably determined. No fabricated screens used.",
+    "native_powerpoint_opened": false,
+    "pdf_review_performed": false,
+    "pdf_export_limitation": "Artifact Session PDF export lacked an embeddable Arial registry; local bundled Artifact Tool PDF export failed with MODULE_NOT_FOUND: #standard-fonts/Helvetica. Bundled dependencies were not modified.",
+    "png_sha256": {
+      "1": "613836da45ddee8dc34326a72cb949340bddecf2408c852f86e8bfa9bf493ba3",
+      "2": "6ee6d5ce93796c31fb5c6509efaa1cb81430f01d93fee4b3cfcd31efbecca164",
+      "3": "ebd3ca9950e4e7d74d4a527c6b11d4d29f05c4929e3db7916a78accfa6f9e4a7",
+      "4": "1cd21e5251d62ab8455f1691a9b8c4b08529874f8f64012dcf71bfa57c0e244d",
+      "5": "5dc6962a2e31790637abcede290c1924825b4ea9af6465c7572e02b13041a632",
+      "6": "aaee77e81eb87ab97da1ea93c962c0fd3063cdef7c90e14b61b2d3c5634a4499",
+      "7": "84ac41370a7c23da1ae06639aef24bf75c5a61d8c07949a8281bc1fbecb543c5",
+      "8": "5375ed398b29d84b5008b16e0578a4862982a39ac358cd67def94a94e167bd49",
+      "9": "36d8f4fdada50c40b53ad964a902c618ee58a111946423ba552cdb147859ce71",
+      "10": "950a811e63429ebdf3837dddf5cc44cee11bebb7dbebc6a6cc783dc72ca46af0",
+      "11": "9e25d0a48a283de5d16f3b802cb008374f1049bea44441dc15946f785fa0df59",
+      "12": "57ce9ce23751cc341eda8267556e48d46c7f0caa094bab1cecccd994585228ce"
+    },
+    "revision_review": {
+      "changed_slides_reviewed": [
+        4,
+        9,
+        11
+      ],
+      "whole_deck_scanned": true,
+      "montage_sha256": "524cb9eec564c4ebf5b798eb4cf5b62e562ed2ae7025c5270417c1dadca47c40"
+    }
+  },
+  "chart_snapshot": {
+    "conversion": "chart_data_snapshot",
+    "converted_chart_count": 1,
+    "converted_charts": [
+      {
+        "chart_part": "ppt/slides/charts/chart1.xml",
+        "owner_slide": 7,
+        "point_count": 3,
+        "series_count": 1,
+        "workbook_part": "ppt/embeddings/chart-data-snapshot-001.xlsx"
+      }
+    ],
+    "detected_chart_owner_slides": [
+      7
+    ],
+    "experimental": true,
+    "input_sha256": "2f36201481965c3285f640406c61fe981b20c91fe801df97485382168acc9cb0",
+    "new_formulas_describe_snapshot_only": true,
+    "output_bytes": 62220,
+    "output_sha256": "330b7b3cdcd6ff78910af37403bd53c7cffb8c9b9a20640e82a8a2d88b136313",
+    "portable_chart_validation_passed": true,
+    "portable_validated_owner_slides": [
+      7
+    ],
+    "preserved_existing_workbook_chart_count": 0,
+    "preserved_existing_workbook_charts": [],
+    "schema_version": "experimental.literal-chart-workbook-snapshot.v1",
+    "source_formula_required_slides": [],
+    "source_formulas_preserved": false,
+    "source_workbook_preserved": false,
+    "source_workbook_required_slides": []
+  },
+  "evidence": {
+    "sqlite_tests": {
+      "run": 58,
+      "passed": 57,
+      "skipped": 1,
+      "seconds": 19.404
+    },
+    "postgresql_tests": {
+      "run": 58,
+      "passed": 58,
+      "skipped": 0,
+      "seconds": 33.899
+    },
+    "source_observations": 6792,
+    "ci": {
+      "run_id": 42395085760,
+      "url": "https://github.com/Hawkeye228666/state-program-monitoring/actions/runs/42395085760",
+      "commit": "d8d23c206e7a363162455afc6954184bd73b9a75",
+      "jobs": [
+        {
+          "id": 128470605895,
+          "name": "compose",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 128470606038,
+          "name": "postgresql",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  }
+}
