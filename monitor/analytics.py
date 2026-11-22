@@ -17,6 +17,7 @@ def _text(number):
 
 
 def _period_kind(period):
+    if period.kind=='cumulative':return ('cumulative',period.start.month,period.end.month)
     return 'quarter' if '-Q' in period.code else 'year'
 
 
@@ -31,6 +32,9 @@ def _signature(row):
     if '-Q' in row.period.code:
         period_type = 'quarter'
     dims.append(('_period_type', period_type))
+    for code in ('s_OKVED','s_OKVED2'):
+        if code in row.dimensions:dims.append(('_classifier_'+code,code))
+    if row.period.kind=='cumulative':dims.append(('_window',str((row.period.start.month,row.period.end.month))))
     dims.append(('_s_OKFS_state', dimension_info(row)['state']))
     return tuple(sorted(dims))
 

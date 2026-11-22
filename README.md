@@ -2,12 +2,23 @@
 
 Единственная СУБД во всех окружениях — PostgreSQL17. Приложение Django5.2/Gunicorn/WhiteNoise. В Git нет рабочей БД, пользователей, дампов или секретов. Исходники:6неизменённых SDMX и оригинальные материалы. Все программы, фильтры, ОКФС/кварталы, графики, CSV/API и роли сохранены.
 
+## Новые программы и многомерные данные
+
+Создание/редактирование программы доступно оператору на сайте. Большие ZIP обрабатываются отдельным worker: предварительная проверка, подтверждение программы и полей, атомарная публикация через PostgreSQL COPY. Годовые файлы группируются по метаданным ID; ОКВЭД/ОКВЭД2 и накопленные интервалы не склеиваются.
+
+- [Подключение, очередь, CLI, manifest и ограничения SDMX](docs/connect-program.md)
+- [Исследование 18 XML и контрольные суммы](docs/industry-research.md)
+- [Классификаторы и временная сопоставимость](docs/classifier-comparability.md)
+- [Результаты полного прогона](docs/industry-verification.md)
+
+Новый сжатый архив предоставляется отдельно по инструкции; гигабайты XML, рабочая БД и секреты в репозиторий не включаются. Старые шесть показателей и 6792 наблюдения сохранены.
+
 ## Получение текущей версии
 
-Пока PR2 не объединён, клонируйте рабочую ветку явно:
+Для текущей доработки клонируйте рабочую ветку явно:
 
 ```text
-git clone --branch feature/postgres-okfs-analytics https://github.com/Hawkeye228666/state-program-monitoring.git
+git clone --branch feature/emiss-industrial-streaming https://github.com/Hawkeye228666/state-program-monitoring.git
 cd state-program-monitoring
 ```
 
@@ -38,7 +49,7 @@ python scripts/create_env.py
 docker compose config --quiet
 docker compose up -d --wait db
 docker compose exec -T db sh /docker-entrypoint-initdb.d/10-app.sh
-docker compose up --build -d --wait app
+docker compose up --build -d --wait app worker
 docker compose exec app python manage.py bootstrap_postgres --load-data
 docker compose exec app python manage.py createsuperuser
 ```

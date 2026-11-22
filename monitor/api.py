@@ -20,10 +20,12 @@ def observation_data(o):
     return {'id': o.pk, 'indicator': o.indicator.file_id,
             'territory': {'code': o.territory.code, 'name': o.territory.name, 'level': o.territory.kind},
             'period': {'code': o.period.code, 'label': o.period.label, 'year': o.period.year,
-                       'type': 'quarter' if '-Q' in o.period.code else 'year'},
+                       'type': o.period.kind if o.period.kind=='cumulative' else ('quarter' if '-Q' in o.period.code else 'year'),
+                       'start':o.period.start,'end':o.period.end,'cumulative':o.period.cumulative,'original':o.period.original},
             'value': o.numeric_text, 'raw_value': o.raw_value,
             'unit': o.dimensions.get('EI', o.indicator.unit),
-            'dimensions': o.dimensions, 'dimension_labels': o.dimension_labels,
+            'dimensions': o.dimensions, 'dimension_labels': o.dimension_labels,'dimension_states':o.dimension_states,
+            'classifiers':o.source.metadata.get('classifiers',{}),
             'okfs': dimension_info(o), 'status': o.status, 'attributes': o.attributes,
             'source': source_metadata(o.source), 'last_import_id': o.last_import_id}
 
@@ -69,7 +71,7 @@ def indicators(request):
 @api_reader
 @require_GET
 def observations(request):
-    program = get_object_or_404(Program, slug=request.GET.get('program', 'housing'))
+    program = get_object_or_404(Program, slug=request.GET.get('program') or Program.objects.order_by('pk').values_list('slug',flat=True).first())
     try:
         rows, _, _ = select_rows(program, request.GET)
     except DataError as e:

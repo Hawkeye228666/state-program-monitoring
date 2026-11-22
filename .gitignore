@@ -5,6 +5,9 @@ __pycache__/
 .env
 staticfiles/
 data/staging/
+data/jobs/
+data/sources/*.sdmx
+materials/industry-source.zip
 *.sqlite3-journal
 *.sqlite3-wal
 *.sqlite3-shm

@@ -19,6 +19,12 @@ x-app: &app
     DJANGO_TRUST_PROXY_SSL: ${DJANGO_TRUST_PROXY_SSL:-0}
     MONITOR_MEDIA_ROOT: /app/data
     LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    SDMX_MAX_UPLOAD: ${SDMX_MAX_UPLOAD:-134217728}
+    SDMX_MAX_XML: ${SDMX_MAX_XML:-536870912}
+    SDMX_MAX_EXPANDED: ${SDMX_MAX_EXPANDED:-8589934592}
+    SDMX_MAX_XML_DEPTH: ${SDMX_MAX_XML_DEPTH:-64}
+    SDMX_MAX_SERIES_OBS: ${SDMX_MAX_SERIES_OBS:-4096}
+    SDMX_MAX_CHART_POINTS: ${SDMX_MAX_CHART_POINTS:-5000}
   volumes:
     - sources:/app/data
   read_only: true
@@ -75,6 +81,14 @@ services:
       timeout: 5s
       retries: 4
       start_period: 20s
+    restart: unless-stopped
+
+  worker:
+    <<: *app
+    command: ["python", "manage.py", "process_imports"]
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
     restart: unless-stopped
 
 volumes:

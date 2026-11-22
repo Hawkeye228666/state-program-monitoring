@@ -15,6 +15,9 @@ def main():
     target.mkdir(parents=True, exist_ok=False)
     running = compose('ps', '--status', 'running', '--services', capture=True).stdout.splitlines()
     was_running = 'app' in running
+    worker_running = 'worker' in running
+    if worker_running:
+        compose('stop','worker')
     if was_running:
         compose('stop', 'app')
     name = 'monitor-' + stamp + '.dump'
@@ -30,6 +33,8 @@ def main():
     finally:
         if was_running:
             compose('start', 'app')
+        if worker_running:
+            compose('start','worker')
 
 if __name__ == '__main__':
     main()

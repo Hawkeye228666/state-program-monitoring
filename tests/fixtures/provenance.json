@@ -1,0 +1,26 @@
+[
+  {
+    "file": "fragment_43007.sdmx",
+    "source_sha256": "48c1212d0287d8aeb8e74c2409427013fa7af9331db49c7459228689818f6d69",
+    "observations": 14,
+    "sha256": "3a7ec3916f7ce352a5d343af6bc3ee1749660fd1da34361b36c337683d1b0aab"
+  },
+  {
+    "file": "fragment_58699.sdmx",
+    "source_sha256": "c37a675489c83bdf1dffd57fe08c5ac72f990cb7f3568b8575ed6bc5d4ddf1be",
+    "observations": 14,
+    "sha256": "db0ad3c7f1744f726cc1523b34a3cd3f52320a57faf54fc9363c5064648301ef"
+  },
+  {
+    "file": "fragment_43578.sdmx",
+    "source_sha256": "643db6957efe0a70aca35a7772c8981620ccd017750cc9011e9e5fe214074e46",
+    "observations": 14,
+    "sha256": "679f498cbd041b54f5f56c193680297597bacb7453a103fa7123b8c5a4f5589b"
+  },
+  {
+    "file": "fragment_43909.sdmx",
+    "source_sha256": "73a7d11e18fbc19d0d01b2d9b66b48d7a6a164421282db3c40d6da8760cfbea6",
+    "observations": 36,
+    "sha256": "e01cd465d8fa4e596706502720063258770d4881b93eb8153b1aaa32e626050c"
+  }
+]

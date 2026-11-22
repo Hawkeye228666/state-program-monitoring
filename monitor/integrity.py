@@ -1,11 +1,14 @@
 import json,hashlib
 from decimal import Decimal
 from datetime import datetime,timezone
+from datetime import date
+from uuid import UUID
 def canonical(value):
     if isinstance(value, Decimal):
         return str(value)
     if isinstance(value, datetime):
         return value.astimezone(timezone.utc).isoformat()
+    if isinstance(value,(date,UUID)):return str(value)
     if isinstance(value, (list, tuple)):
         return [canonical(v) for v in value]
     if isinstance(value, dict):
