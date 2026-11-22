@@ -18,8 +18,11 @@ from .queries import select_rows, chart_data
 
 @reader
 def home(request):
-    programs=Program.objects.annotate(total=Count('indicators__observations'),indicator_count=Count('indicators',distinct=True)).order_by('slug')
-    return render(request,'monitor/home.html',{'programs':programs,'program_count':Program.objects.count(),'observations':Observation.objects.count(),'territories':Territory.objects.filter(observation__isnull=False).distinct().count(),'indicators':Indicator.objects.count(),'periods':Period.objects.order_by('order'),'recent':ImportRun.objects.first()})
+    totals=dict(Observation.objects.order_by().values('indicator__program_id').annotate(n=Count('*')).values_list('indicator__program_id','n'))
+    counts=dict(Indicator.objects.order_by().values('program_id').annotate(n=Count('*')).values_list('program_id','n'))
+    programs=list(Program.objects.order_by('slug'))
+    for program in programs:program.total=totals.get(program.pk,0);program.indicator_count=counts.get(program.pk,0)
+    return render(request,'monitor/home.html',{'programs':programs,'program_count':len(programs),'observations':sum(totals.values()),'territories':Territory.objects.filter(pk__in=Observation.objects.values('territory_id')).count(),'indicators':sum(counts.values()),'periods':Period.objects.order_by('order'),'recent':ImportRun.objects.first()})
 @reader
 def passport(request,slug):
     p=get_object_or_404(Program,slug=slug);entries=[]
@@ -91,7 +94,7 @@ def explore(request):
         if k in ('regions','periods','level') or k.startswith('dim_'):
             for v in params.getlist(k):
                 if v:active.append(k+': '+v)
-    return render(request,'monitor/explore.html',{'program':p,'programs':Program.objects.all(),'indicators':p.indicators.order_by('file_id'),'chosen':chosen,'mode':mode,'regions':[{'code':t.code,'name':t.name,'kind':t.get_kind_display(),'selected':t.code in params.getlist('regions')} for t in Territory.objects.filter(observation__in=base).distinct().order_by('kind','name')],'periods':[{'code':x.code,'label':x.label,'selected':x.code in params.getlist('periods')} for x in Period.objects.filter(observation__in=base).distinct().order_by('order')],'fields':fields,'page':page,'total':total,'chart':chart,'analytics':analytics,'analysis_params':{k:params.get(k,'') for k in ('compare_start','compare_end','chart_period','scatter_x','scatter_y')},'query':query.urlencode(),'active':active,'sort':params.get('sort','territory'),'level':params.get('level',''),'levels':Territory._meta.get_field('kind').choices})
+    return render(request,'monitor/explore.html',{'program':p,'programs':Program.objects.all(),'indicators':p.indicators.order_by('file_id'),'chosen':chosen,'mode':mode,'regions':[{'code':t.code,'name':t.name,'kind':t.get_kind_display(),'selected':t.code in params.getlist('regions')} for t in Territory.objects.filter(pk__in=field_rows.values('territory_id')).order_by('kind','name')],'periods':[{'code':x.code,'label':x.label,'selected':x.code in params.getlist('periods')} for x in Period.objects.filter(pk__in=field_rows.values('period_id')).order_by('order')],'fields':fields,'page':page,'total':total,'chart':chart,'analytics':analytics,'analysis_params':{k:params.get(k,'') for k in ('compare_start','compare_end','chart_period','scatter_x','scatter_y')},'query':query.urlencode(),'active':active,'sort':params.get('sort','territory'),'level':params.get('level',''),'levels':Territory._meta.get_field('kind').choices})
 
 @operator
 @require_http_methods(['GET','POST'])

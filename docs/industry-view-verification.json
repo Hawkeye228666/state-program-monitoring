@@ -1,0 +1,39 @@
+{
+  "api": {
+    "seconds": 0.05349200000091514,
+    "count": 7,
+    "values": [
+      "30779.1",
+      "37843.4",
+      "40588.9",
+      "37954.4",
+      "37332.1",
+      "38719",
+      "58912"
+    ]
+  },
+  "csv": {
+    "header_seconds": 0.008750799999688752,
+    "stream_seconds": 0.01554980000037176,
+    "count": 7,
+    "matches_api": true
+  },
+  "chart_payload": {
+    "seconds": 0.021943499999906635,
+    "count": 7,
+    "matches_api": true
+  },
+  "html": {
+    "seconds": 0.784081599998899,
+    "bytes": 275925
+  },
+  "home": {
+    "seconds": 0.46628679999957967,
+    "programs": 3
+  },
+  "legacy_values_equal_original_xml": true,
+  "legacy_observations": 6792,
+  "peak_process_rss_bytes": 83095552,
+  "status": "success",
+  "browser_checks": false
+}
