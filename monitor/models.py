@@ -114,7 +114,7 @@ class Observation(models.Model):
     def display(self): return self.raw_value if self.raw_value else 'нет данных'
     @property
     def dimensions_display(self):
-        return '; '.join(f'{k}: {v}' for k,v in self.dimension_labels.items())
+        return '; '.join(f'{k}: {v} [{self.dimensions.get(k, "")}]' for k,v in self.dimension_labels.items())
 
 
 class MappingProfile(models.Model):

@@ -83,6 +83,7 @@ class IndustryTests(TestCase):
         import csv
         records=list(csv.reader(io.StringIO(b''.join(response.streaming_content).decode('utf-8-sig')),delimiter=';'))
         self.assertEqual(len(records)-1,result['count'])
+        raw=json.loads(records[1][records[0].index('Измерения JSON')]);self.assertTrue(raw['s_OKSM'].startswith('w2:'))
         with override_settings(SDMX_MAX_CHART_POINTS=1):
             response=self.client.get('/explore/?'+q);self.assertContains(response,'Уточните территории')
             self.assertEqual(response.context['page'].paginator.count,result['count'])

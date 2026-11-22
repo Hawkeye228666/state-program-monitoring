@@ -62,7 +62,7 @@ def chart_data(rows,bar_period=''):
     for o in rows:
         extras=tuple(sorted((k,v) for k,v in o.dimensions.items() if k not in ('PERIOD','EI')))
         key=(o.territory.code,extras)
-        extra_label='; '.join(o.dimension_labels.get(k,v) for k,v in extras)
+        extra_label='; '.join(o.dimension_labels.get(k,v)+' ['+str(v)+']' for k,v in extras)
         names[key]=o.territory.name+(' / '+extra_label if extra_label else '')
         if o.period.code in groups[key]:result['reason']='Несколько значений в одной точке. Уточните измерения.';return result
         groups[key][o.period.code]=o
