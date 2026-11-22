@@ -49,6 +49,7 @@ def extract_sources(paths,root=None):
                 copy(stream,temp,limit('MAX_UPLOAD',128*1024**2));temp.seek(0)
                 try:
                     with zipfile.ZipFile(temp) as z:
+                        if len(z.infolist())>limit('MAX_ENTRIES',256):raise DataError('Слишком много элементов ZIP, включая каталоги.')
                         for item in z.infolist():
                             safe_path(item.filename)
                             if item.is_dir():continue
@@ -71,10 +72,14 @@ def extract_sources(paths,root=None):
         if path.stat().st_size>limit('MAX_UPLOAD',128*1024**2):raise DataError('Превышен размер загрузки. Настройте SDMX_MAX_UPLOAD.')
         with path.open('rb') as f:yield from visit(path.name,f,0)
 
-def events(path):
+def events(path,expected_sha=None):
     stack=[];series_obs=0
+    stream=Path(path).open('rb');hasher=hashlib.sha256()
+    class Reader:
+        def read(self,n=-1):
+            chunk=stream.read(n);hasher.update(chunk);return chunk
     try:
-        for event,e in ET.iterparse(path,events=('start','end'),forbid_dtd=True,forbid_entities=True,forbid_external=True):
+        for event,e in ET.iterparse(Reader(),events=('start','end'),forbid_dtd=True,forbid_entities=True,forbid_external=True):
             if event=='start':
                 stack.append(e)
                 if len(stack)>limit('MAX_XML_DEPTH',64):raise DataError('Слишком глубокий XML.')
@@ -88,15 +93,20 @@ def events(path):
                     if len(stack)>1:stack[-2].remove(e)
                     e.clear();series_obs=0
                 stack.pop()
+        if expected_sha and hasher.hexdigest()!=expected_sha:raise DataError('SHA256 источника изменился после предпросмотра.')
     except (DefusedXmlException,ParseError,ValueError) as error:raise DataError('Небезопасный/повреждённый XML: '+str(error)) from error
+    finally:stream.close()
 
 def metadata(source):
     info={'file_id':'','name':'','metadata':{},'codelists':{},'names':dict(LABELS),'header_id':'','dataset_id':''}
+    indicator_count=0
     for e,parent in events(source.path):
         if e.tag=='{'+M+'}Header':
             info['header_id']=e.findtext('m:ID','',NS);info['dataset_id']=e.findtext('m:DataSetID','',NS)
             info['metadata']['prepared']=e.findtext('m:Prepared','',NS)
         elif e.tag=='{'+M+'}Indicator':
+            indicator_count+=1
+            if indicator_count>1:raise DataError('Несколько Indicator в одном XML не поддерживаются этим профилем.')
             info.update(file_id=e.attrib.get('id',''),name=e.attrib.get('name',''))
             unit=e.find('m:Units/m:Unit',NS);info['unit']=unit.attrib.get('value','') if unit is not None else ''
             for key,tag in [('methodology','Methodology'),('organization','Organization'),('comment','Comment')]:
@@ -122,11 +132,11 @@ ROLES={'territory','dimension','unit','multiplier','period','attribute','status'
 def validate_profile(info,rules=None):
     if rules is None:
         if 's_OKATO' not in info['fields']:raise DataError('Неоднозначная территория: подтвердите профиль сопоставления.')
-        rules={k:{'role':'territory' if k=='s_OKATO' else 'dimension','codelist':k,'transform':'identity'} for k in info['fields']}
+        rules={k:{'role':'territory' if k=='s_OKATO' else 'dimension','codelist':k if k in info['codelists'] else None,'transform':'identity'} for k in info['fields']}
     if not isinstance(rules,dict):raise DataError('Профиль должен быть объектом JSON.')
     for field,rule in rules.items():
         if not isinstance(rule,dict) or set(rule)-{'role','codelist','transform'} or rule.get('role') not in ROLES or rule.get('transform','identity')!='identity':raise DataError('Профиль: разрешены только известные роли и identity; код не исполняется.')
-        if rule.get('codelist',field) not in info['codelists']:raise DataError('Нет указанного справочника: '+field)
+        if rule.get('codelist',field) is not None and rule.get('codelist',field) not in info['codelists']:raise DataError('Нет указанного справочника: '+field)
     if set(info['fields'])-set(rules):raise DataError('Профиль не определяет все поля SeriesKey.')
     if sum(x['role']=='territory' for x in rules.values())!=1:raise DataError('Профиль должен содержать ровно одну территорию.')
     if 's_OKATO' in info['fields'] and rules.get('s_OKATO',{}).get('role')!='territory':raise DataError('s_OKATO должен оставаться основной территорией; s_OKSM — отдельный разрез.')
@@ -153,15 +163,21 @@ def period_info(time,kind):
     return {'code':str(year),'label':str(year),'year':year,'order':f'{year}-00','kind':'year','start':date(year,1,1),'end':date(year,12,31),'cumulative':False,'original':kind or time}
 
 def rows(source,info,rules=None):
-    rules=validate_profile(info,rules);lists=info['codelists'];declared=info['metadata']['declared_dimensions'];dsattrs={}
-    for e,parent in events(source.path):
-        if e.tag=='{'+G+'}Attributes' and parent is not None and parent.tag=='{'+M+'}DataSet':dsattrs=values(parent,'g:Attributes/g:Value')
+    rules=validate_profile(info,rules);lists=info['codelists'];declared=info['metadata']['declared_dimensions'];dsattrs={};seen_series=False
+    for e,parent in events(source.path,source.sha256):
+        if e.tag=='{'+G+'}Attributes' and parent is not None and parent.tag=='{'+M+'}DataSet':
+            if seen_series:raise DataError('Атрибуты DataSet после Series не поддерживаются потоковым профилем.')
+            dsattrs=values(parent,'g:Attributes/g:Value')
         if e.tag!='{'+G+'}Series':continue
+        seen_series=True
+        concepts=[x.attrib.get('concept') for x in e.findall('g:SeriesKey/g:Value',NS)]
+        if len(concepts)!=len(set(concepts)):raise DataError('Повторяющееся поле SeriesKey; требуется однозначная структура.')
         keys=values(e,'g:SeriesKey/g:Value');attrs=dsattrs|values(e,'g:Attributes/g:Value')
         territory_field=next(k for k,v in rules.items() if v['role']=='territory')
         territory=keys.get(territory_field,'')
         if not territory:raise DataError('Отсутствует основная территория: '+territory_field)
         for obs in e.findall('g:Obs',NS):
+            if any(x.tag not in ('{'+G+'}Time','{'+G+'}ObsValue','{'+G+'}Attributes') for x in obs):raise DataError('Неподдерживаемая структура Obs; ожидаются Time/ObsValue/Attributes.')
             a=attrs|values(obs,'g:Attributes/g:Value')
             for key,rule in rules.items():
                 role=rule['role']
@@ -175,7 +191,7 @@ def rows(source,info,rules=None):
             dims.update({k:v for k,v in a.items() if k in ('EI','PERIOD','UNIT_MULT','DECIMALS','FREQ')})
             labels={};states={}
             for k,v in dims.items():
-                dictionary=rules.get(k,{}).get('codelist',k);label=lists.get(dictionary,{}).get(v,v)
+                dictionary=rules.get(k,{}).get('codelist') or k;label=lists.get(dictionary,{}).get(v,v)
                 state='missing' if v=='' else ('known' if v in lists.get(dictionary,{}) or k in ('EI','PERIOD','UNIT_MULT','DECIMALS','FREQ') else 'unknown')
                 if label and (re.search(r'(^|\s)(итого|всего|итог)(\s|:|\(|$)',label.lower()) or label.lower().startswith('всего')):state='aggregate'
                 states[k]=state;labels[k]=(info['names'].get(dictionary,k)+' / '+label) if k.startswith('s_') else label

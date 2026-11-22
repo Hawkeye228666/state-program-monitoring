@@ -61,7 +61,7 @@ def explore(request):
         reason=f'В выборке {total} строк; предел графиков {maximum}. Уточните территории, периоды и измерения. Таблица и полный CSV доступны.'
         chart={'reason':reason};analytics={k:{'reason':reason} for k in ('dumbbell','scatter','boxplot')};bounded=[]
     else:
-        bounded=list(rows);chart=chart_data(bounded,params.get('bar_period',''));analytics=advanced_charts(bounded,params)
+        bounded=list(rows.all());chart=chart_data(bounded,params.get('bar_period',''));analytics=advanced_charts(bounded,params)
     if fmt=='json':
         if total>maximum:return JsonResponse({'error':chart['reason'],'count':total,'api':'/api/v1/observations/'},status=400)
         return JsonResponse({'count':total,'rows':[{'indicator':o.indicator.file_id,'territory':o.territory.code,'period':o.period.code,'dimensions':o.dimensions,'value':o.numeric_text,'raw_value':o.raw_value,'status':o.status,'okfs':dimension_info(o)} for o in bounded],'chart':chart,'analytics':analytics},json_dumps_params={'ensure_ascii':False})

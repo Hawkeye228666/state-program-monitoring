@@ -25,7 +25,7 @@ def process(job):
                     if len(sample)<3:sample.append({'territory':row['territory'],'period':pc,'dimensions':row['dimensions'],'value':row['raw_value']})
                     if count%100000==0:
                         job.message=f'{source.filename}: {count} наблюдений проверено';job.save(update_fields=['message'])
-                preview.append({'filename':source.filename,'sha256':source.sha256,'size':source.size,'file_id':info['file_id'],'name':info['name'],'unit':info['unit'],'count':count,'sample':sample,'periods':periods,'states':states,'rules':rules,'default':Indicator.objects.filter(file_id=info['file_id']).values_list('program__slug',flat=True).first() or job.payload.get('program','')})
+                preview.append({'filename':source.filename,'sha256':source.sha256,'size':source.size,'file_id':info['file_id'],'name':info['name'],'unit':info['unit'],'count':count,'sample':sample,'periods':periods,'states':states,'rules':rules,'metadata':{k:info['metadata'].get(k) for k in ('methodology','organization','forms','comment','classifiers','diagnostics')},'diagnostics':info['metadata'].get('diagnostics',[]),'default':Indicator.objects.filter(file_id=info['file_id']).values_list('program__slug',flat=True).first() or job.payload.get('program','')})
                 job.preview=preview;job.save(update_fields=['preview'])
             job.state='awaiting_approval';job.message='Проверьте программу и сопоставление полей. Данные ещё не опубликованы.';job.save()
         else:

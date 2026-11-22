@@ -1,0 +1,1451 @@
+{
+  "run": 2,
+  "raw": 5821363,
+  "unique": 5821363,
+  "added": 5821363,
+  "updated": 0,
+  "skipped": 0,
+  "rejected": 0,
+  "details": [
+    {
+      "file": "data_43007_2009.sdmx",
+      "sha256": "48c1212d0287d8aeb8e74c2409427013fa7af9331db49c7459228689818f6d69",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 369331,
+      "periods": {
+        "2009": 369331
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2009",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "9",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "2161428"
+        },
+        {
+          "territory": "643",
+          "period": "2009",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "337719"
+        },
+        {
+          "territory": "643",
+          "period": "2009",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1823713"
+        }
+      ],
+      "bytes": 205748132,
+      "unique": 369331,
+      "added": 369331,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43007_2010.sdmx",
+      "sha256": "ea81be298402624d3caf42ed8351e590bb54bbf4c41136647571bb98524d0207",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 381106,
+      "periods": {
+        "2010": 381106
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2010",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "9",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "2060028"
+        },
+        {
+          "territory": "643",
+          "period": "2010",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "304122"
+        },
+        {
+          "territory": "643",
+          "period": "2010",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1755918"
+        }
+      ],
+      "bytes": 212307629,
+      "unique": 381106,
+      "added": 381106,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43007_2011.sdmx",
+      "sha256": "51b120a34d412baffff35eafe4110ad2e9453d251f694ddd9b4911b6a4522215",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 382419,
+      "periods": {
+        "2011": 382419
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2011",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "9",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1953562"
+        },
+        {
+          "territory": "643",
+          "period": "2011",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "275047"
+        },
+        {
+          "territory": "643",
+          "period": "2011",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1678515"
+        }
+      ],
+      "bytes": 213032087,
+      "unique": 382419,
+      "added": 382419,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43007_2012.sdmx",
+      "sha256": "da326ff1bfa1c688f9cf6c0d7c00d128b22f7042ddee5585ef673efaf9468568",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 390855,
+      "periods": {
+        "2012": 390855
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2012",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "9",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1823511,7"
+        },
+        {
+          "territory": "643",
+          "period": "2012",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "248321"
+        },
+        {
+          "territory": "643",
+          "period": "2012",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1575190,7"
+        }
+      ],
+      "bytes": 217766581,
+      "unique": 390855,
+      "added": 390855,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43007_2013.sdmx",
+      "sha256": "943d4335adca2aed90993093d8151d307d9356ddfad8dc4cd49145cd1881887e",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 398527,
+      "periods": {
+        "2013": 398527
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2013",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "9",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1716187"
+        },
+        {
+          "territory": "643",
+          "period": "2013",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "230380"
+        },
+        {
+          "territory": "643",
+          "period": "2013",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1485807"
+        }
+      ],
+      "bytes": 222054554,
+      "unique": 398527,
+      "added": 398527,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43007_2014.sdmx",
+      "sha256": "1db966aa68ffc6ded54b6de8e4a6a183755f857b405a79bb1c1460e5c1d5843d",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 393889,
+      "periods": {
+        "2014": 393889
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2014",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "9",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1631123,9"
+        },
+        {
+          "territory": "643",
+          "period": "2014",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "217394"
+        },
+        {
+          "territory": "643",
+          "period": "2014",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1413729,9"
+        }
+      ],
+      "bytes": 219483195,
+      "unique": 393889,
+      "added": 393889,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43007_2015.sdmx",
+      "sha256": "3a970a4f4a9532307b3287dd406fe9ddd0b7413bcfd5a3eb62534b8b05354895",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 410686,
+      "periods": {
+        "2015": 410686
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2015",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "9",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1609575"
+        },
+        {
+          "territory": "643",
+          "period": "2015",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "210953"
+        },
+        {
+          "territory": "643",
+          "period": "2015",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1398622"
+        }
+      ],
+      "bytes": 228781673,
+      "unique": 410686,
+      "added": 410686,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43007_2016.sdmx",
+      "sha256": "fac91c02c734869e70bf93a886597547f98f79f7242819462ac40b73aee07d57",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 397328,
+      "periods": {
+        "2016": 397328
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2016",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "9",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1547431,4"
+        },
+        {
+          "territory": "643",
+          "period": "2016",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "199230,4"
+        },
+        {
+          "territory": "643",
+          "period": "2016",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1348201"
+        }
+      ],
+      "bytes": 221392093,
+      "unique": 397328,
+      "added": 397328,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43007_2017.sdmx",
+      "sha256": "6fc6b957d68719437e2c58c79db3172bd2d251be390f2cb8cbbfededfdc24d06",
+      "file_id": "43007",
+      "program": "industry",
+      "raw": 77740,
+      "periods": {
+        "2017": 77740
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2017",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "38",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "180322,1"
+        },
+        {
+          "territory": "643",
+          "period": "2017",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "39",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1394830,33"
+        },
+        {
+          "territory": "643",
+          "period": "2017",
+          "dimensions": {
+            "s_OKVED": "A",
+            "s_OKFS": "108",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "39196,2"
+        }
+      ],
+      "bytes": 43536066,
+      "unique": 77740,
+      "added": 77740,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43578.sdmx",
+      "sha256": "643db6957efe0a70aca35a7772c8981620ccd017750cc9011e9e5fe214074e46",
+      "file_id": "43578",
+      "program": "industry",
+      "raw": 11661,
+      "periods": {
+        "2012": 2229,
+        "2013": 2369,
+        "2014": 2316,
+        "2015": 2154,
+        "2016": 2593
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2012",
+          "dimensions": {
+            "s_OKVED": "C",
+            "EI": "РїСЂРѕС†РµРЅС‚",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1,1"
+        },
+        {
+          "territory": "030",
+          "period": "2012",
+          "dimensions": {
+            "s_OKVED": "C",
+            "EI": "РїСЂРѕС†РµРЅС‚",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "0,6"
+        },
+        {
+          "territory": "14000000000",
+          "period": "2012",
+          "dimensions": {
+            "s_OKVED": "C",
+            "EI": "РїСЂРѕС†РµРЅС‚",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "0,3"
+        }
+      ],
+      "bytes": 5946046,
+      "unique": 11661,
+      "added": 11661,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_43909.sdmx",
+      "sha256": "73a7d11e18fbc19d0d01b2d9b66b48d7a6a164421282db3c40d6da8760cfbea6",
+      "file_id": "43909",
+      "program": "industry",
+      "raw": 36,
+      "periods": {
+        "2013": 1,
+        "2014-YTD01": 1,
+        "2014-YTD02": 1,
+        "2014-YTD03": 1,
+        "2014-YTD04": 1,
+        "2014-YTD05": 1,
+        "2014-YTD06": 1,
+        "2014-YTD07": 1,
+        "2014-YTD08": 1,
+        "2014-YTD09": 1,
+        "2014-YTD10": 1,
+        "2014-YTD11": 1,
+        "2014": 1,
+        "2015-YTD01": 1,
+        "2015-YTD02": 1,
+        "2015-YTD03": 1,
+        "2015-YTD04": 1,
+        "2015-YTD05": 1,
+        "2015-YTD06": 1,
+        "2015-YTD07": 1,
+        "2015-YTD08": 1,
+        "2015-YTD09": 1,
+        "2015-YTD10": 1,
+        "2015-YTD11": 1,
+        "2015-YTD12": 1,
+        "2016-YTD01": 1,
+        "2016-YTD02": 1,
+        "2016-YTD04": 1,
+        "2016-YTD05": 1,
+        "2016-YTD06": 1,
+        "2016-YTD07": 1,
+        "2016-YTD08": 1,
+        "2016-YTD09": 1,
+        "2016-YTD10": 1,
+        "2016-YTD11": 1,
+        "2016-YTD12": 1
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2013",
+          "dimensions": {
+            "s_OKSM": "w2:p_oksm:1900",
+            "EI": "РјРёР»Р»РёРѕРЅ РґРѕР»Р»Р°СЂРѕРІ",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "18157"
+        },
+        {
+          "territory": "643",
+          "period": "2014-YTD01",
+          "dimensions": {
+            "s_OKSM": "w2:p_oksm:1900",
+            "EI": "РјРёР»Р»РёРѕРЅ РґРѕР»Р»Р°СЂРѕРІ",
+            "PERIOD": "СЏРЅРІР°СЂСЊ"
+          },
+          "value": "797"
+        },
+        {
+          "territory": "643",
+          "period": "2014-YTD02",
+          "dimensions": {
+            "s_OKSM": "w2:p_oksm:1900",
+            "EI": "РјРёР»Р»РёРѕРЅ РґРѕР»Р»Р°СЂРѕРІ",
+            "PERIOD": "СЏРЅРІР°СЂСЊ-С„РµРІСЂР°Р»СЊ"
+          },
+          "value": "1850"
+        }
+      ],
+      "bytes": 23570,
+      "unique": 36,
+      "added": 36,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_58699_2017.sdmx",
+      "sha256": "c37a675489c83bdf1dffd57fe08c5ac72f990cb7f3568b8575ed6bc5d4ddf1be",
+      "file_id": "58699",
+      "program": "industry",
+      "raw": 275501,
+      "periods": {
+        "2017": 275501
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2017",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "80",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "17328824,4"
+        },
+        {
+          "territory": "643",
+          "period": "2017",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "107",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "21856988,94"
+        },
+        {
+          "territory": "643",
+          "period": "2017",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "108",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "2702817,1"
+        }
+      ],
+      "bytes": 154321652,
+      "unique": 275501,
+      "added": 275501,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_58699_2018.sdmx",
+      "sha256": "63bd047078bd9d7e544be95fe282bb76cd04f50dd30263cfca4794c26cbd3165",
+      "file_id": "58699",
+      "program": "industry",
+      "raw": 350271,
+      "periods": {
+        "2018": 350271
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2018",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "80",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "17153347,3"
+        },
+        {
+          "territory": "643",
+          "period": "2018",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "107",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "21883085,27"
+        },
+        {
+          "territory": "643",
+          "period": "2018",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "108",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "2719152,2"
+        }
+      ],
+      "bytes": 196162153,
+      "unique": 350271,
+      "added": 350271,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_58699_2019.sdmx",
+      "sha256": "3ebbb503898093a9e02ac930d5a428d674d27404fb62a05ef6cd78bc688cbe68",
+      "file_id": "58699",
+      "program": "industry",
+      "raw": 402658,
+      "periods": {
+        "2019": 402658
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2019",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "80",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "17051319,1"
+        },
+        {
+          "territory": "643",
+          "period": "2019",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "107",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "21625341,21"
+        },
+        {
+          "territory": "643",
+          "period": "2019",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "108",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "2859019,8"
+        }
+      ],
+      "bytes": 225493438,
+      "unique": 402658,
+      "added": 402658,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_58699_2020.sdmx",
+      "sha256": "6ea1c9db41b5927a6eda8547d8a8a5afdba222f9beb16eb58eeba0289058a1f4",
+      "file_id": "58699",
+      "program": "industry",
+      "raw": 396125,
+      "periods": {
+        "2020": 396125
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2020",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "80",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "16944961,5"
+        },
+        {
+          "territory": "643",
+          "period": "2020",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "107",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "21253945,23"
+        },
+        {
+          "territory": "643",
+          "period": "2020",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "108",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "2808312,7"
+        }
+      ],
+      "bytes": 221777591,
+      "unique": 396125,
+      "added": 396125,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_58699_2021.sdmx",
+      "sha256": "dc396805eb4a7d9b983e70ba0d6039361b67140cc5d63b5854d7c3a798cece32",
+      "file_id": "58699",
+      "program": "industry",
+      "raw": 397185,
+      "periods": {
+        "2021": 397185
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2021",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "80",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "16760617,4"
+        },
+        {
+          "territory": "643",
+          "period": "2021",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "107",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "21228950,42"
+        },
+        {
+          "territory": "643",
+          "period": "2021",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "108",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "2840796,9"
+        }
+      ],
+      "bytes": 222373266,
+      "unique": 397185,
+      "added": 397185,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_58699_2022.sdmx",
+      "sha256": "05d8313d258a9407b208226cb4937b34456f05f99efdbf0027c506b321c7cfef",
+      "file_id": "58699",
+      "program": "industry",
+      "raw": 394314,
+      "periods": {
+        "2022": 394314
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2022",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "80",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "16465218"
+        },
+        {
+          "territory": "643",
+          "period": "2022",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "107",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "21934327"
+        },
+        {
+          "territory": "643",
+          "period": "2022",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "108",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "2372817"
+        }
+      ],
+      "bytes": 220134519,
+      "unique": 394314,
+      "added": 394314,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    },
+    {
+      "file": "data_58699_2023.sdmx",
+      "sha256": "fee1599a661af8c75637593b164160c6f087fb22e04b511969bb78275379b407",
+      "file_id": "58699",
+      "program": "industry",
+      "raw": 391731,
+      "periods": {
+        "2023": 391731
+      },
+      "sample": [
+        {
+          "territory": "643",
+          "period": "2023",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "80",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "16199242"
+        },
+        {
+          "territory": "643",
+          "period": "2023",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "107",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "22539318"
+        },
+        {
+          "territory": "643",
+          "period": "2023",
+          "dimensions": {
+            "s_OKVED2": "101.РђР“",
+            "s_OKFS": "108",
+            "EI": "С‡РµР»РѕРІРµРє",
+            "PERIOD": "Р·РЅР°С‡РµРЅРёРµ РїРѕРєР°Р·Р°С‚РµР»СЏ Р·Р° РіРѕРґ"
+          },
+          "value": "1975371"
+        }
+      ],
+      "bytes": 218631196,
+      "unique": 391731,
+      "added": 391731,
+      "updated": 0,
+      "skipped": 0,
+      "rejected": 0,
+      "duplicates": 0
+    }
+  ],
+  "progress": {
+    "phase": "complete",
+    "seconds": 1771.561,
+    "duplicate_raw": 0
+  },
+  "legacy": 6792,
+  "total": 5828155,
+  "seconds": 2036.7217626999998,
+  "queries": {
+    "filtered": {
+      "seconds": 0.04036640000003899,
+      "sample": [
+        [
+          388
+        ]
+      ],
+      "plan": [
+        {
+          "Plan": {
+            "Node Type": "Aggregate",
+            "Strategy": "Plain",
+            "Partial Mode": "Simple",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 4432.27,
+            "Total Cost": 4432.28,
+            "Plan Rows": 1,
+            "Plan Width": 8,
+            "Actual Startup Time": 4.517,
+            "Actual Total Time": 4.518,
+            "Actual Rows": 1,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 923,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Hash Join",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Join Type": "Inner",
+                "Startup Cost": 2187.5,
+                "Total Cost": 4432.26,
+                "Plan Rows": 4,
+                "Plan Width": 0,
+                "Actual Startup Time": 4.228,
+                "Actual Total Time": 4.504,
+                "Actual Rows": 388,
+                "Actual Loops": 1,
+                "Inner Unique": true,
+                "Hash Cond": "(o.indicator_id = i.id)",
+                "Shared Hit Blocks": 923,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Bitmap Heap Scan",
+                    "Parent Relationship": "Outer",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Relation Name": "monitor_observation",
+                    "Alias": "o",
+                    "Startup Cost": 2179.33,
+                    "Total Cost": 4422.54,
+                    "Plan Rows": 571,
+                    "Plan Width": 8,
+                    "Actual Startup Time": 4.213,
+                    "Actual Total Time": 4.451,
+                    "Actual Rows": 388,
+                    "Actual Loops": 1,
+                    "Recheck Cond": "(dimensions @> '{\"s_OKFS\": \"61\", \"s_OKVED2\": \"C\"}'::jsonb)",
+                    "Rows Removed by Index Recheck": 0,
+                    "Exact Heap Blocks": 388,
+                    "Lossy Heap Blocks": 0,
+                    "Shared Hit Blocks": 921,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "Bitmap Index Scan",
+                        "Parent Relationship": "Outer",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Index Name": "obs_dimensions_gin",
+                        "Startup Cost": 0.0,
+                        "Total Cost": 2179.18,
+                        "Plan Rows": 571,
+                        "Plan Width": 0,
+                        "Actual Startup Time": 4.174,
+                        "Actual Total Time": 4.175,
+                        "Actual Rows": 388,
+                        "Actual Loops": 1,
+                        "Index Cond": "(dimensions @> '{\"s_OKFS\": \"61\", \"s_OKVED2\": \"C\"}'::jsonb)",
+                        "Shared Hit Blocks": 533,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0
+                      }
+                    ]
+                  },
+                  {
+                    "Node Type": "Hash",
+                    "Parent Relationship": "Inner",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Startup Cost": 8.16,
+                    "Total Cost": 8.16,
+                    "Plan Rows": 1,
+                    "Plan Width": 8,
+                    "Actual Startup Time": 0.01,
+                    "Actual Total Time": 0.011,
+                    "Actual Rows": 1,
+                    "Actual Loops": 1,
+                    "Hash Buckets": 1024,
+                    "Original Hash Buckets": 1024,
+                    "Hash Batches": 1,
+                    "Original Hash Batches": 1,
+                    "Peak Memory Usage": 9,
+                    "Shared Hit Blocks": 2,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "Index Scan",
+                        "Parent Relationship": "Outer",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Scan Direction": "Forward",
+                        "Index Name": "monitor_indicator_file_id_a1c950e7_like",
+                        "Relation Name": "monitor_indicator",
+                        "Alias": "i",
+                        "Startup Cost": 0.14,
+                        "Total Cost": 8.16,
+                        "Plan Rows": 1,
+                        "Plan Width": 8,
+                        "Actual Startup Time": 0.005,
+                        "Actual Total Time": 0.006,
+                        "Actual Rows": 1,
+                        "Actual Loops": 1,
+                        "Index Cond": "((file_id)::text = '58699'::text)",
+                        "Rows Removed by Index Recheck": 0,
+                        "Shared Hit Blocks": 2,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "Planning": {
+            "Shared Hit Blocks": 1,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          },
+          "Planning Time": 0.186,
+          "Triggers": [],
+          "Execution Time": 4.539
+        }
+      ]
+    },
+    "page": {
+      "seconds": 0.17809699999997974,
+      "sample": [
+        [
+          8083
+        ],
+        [
+          33977
+        ],
+        [
+          34074
+        ]
+      ],
+      "plan": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 37073.96,
+            "Total Cost": 37074.08,
+            "Plan Rows": 50,
+            "Plan Width": 8,
+            "Actual Startup Time": 84.18,
+            "Actual Total Time": 84.185,
+            "Actual Rows": 50,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 11167,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Sort",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Startup Cost": 37073.96,
+                "Total Cost": 37075.07,
+                "Plan Rows": 444,
+                "Plan Width": 8,
+                "Actual Startup Time": 84.179,
+                "Actual Total Time": 84.181,
+                "Actual Rows": 50,
+                "Actual Loops": 1,
+                "Sort Key": [
+                  "o.id"
+                ],
+                "Sort Method": "top-N heapsort",
+                "Sort Space Used": 25,
+                "Sort Space Type": "Memory",
+                "Shared Hit Blocks": 11167,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Nested Loop",
+                    "Parent Relationship": "Outer",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Join Type": "Inner",
+                    "Startup Cost": 10309.13,
+                    "Total Cost": 37059.21,
+                    "Plan Rows": 444,
+                    "Plan Width": 8,
+                    "Actual Startup Time": 77.03,
+                    "Actual Total Time": 83.876,
+                    "Actual Rows": 8621,
+                    "Actual Loops": 1,
+                    "Inner Unique": false,
+                    "Shared Hit Blocks": 11167,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "Index Scan",
+                        "Parent Relationship": "Outer",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Scan Direction": "Forward",
+                        "Index Name": "monitor_indicator_file_id_a1c950e7_like",
+                        "Relation Name": "monitor_indicator",
+                        "Alias": "i",
+                        "Startup Cost": 0.14,
+                        "Total Cost": 8.16,
+                        "Plan Rows": 1,
+                        "Plan Width": 8,
+                        "Actual Startup Time": 0.014,
+                        "Actual Total Time": 0.016,
+                        "Actual Rows": 1,
+                        "Actual Loops": 1,
+                        "Index Cond": "((file_id)::text = '58699'::text)",
+                        "Rows Removed by Index Recheck": 0,
+                        "Shared Hit Blocks": 2,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0
+                      },
+                      {
+                        "Node Type": "Bitmap Heap Scan",
+                        "Parent Relationship": "Inner",
+                        "Parallel Aware": false,
+                        "Async Capable": false,
+                        "Relation Name": "monitor_observation",
+                        "Alias": "o",
+                        "Startup Cost": 10308.98,
+                        "Total Cost": 36978.95,
+                        "Plan Rows": 7209,
+                        "Plan Width": 16,
+                        "Actual Startup Time": 77.014,
+                        "Actual Total Time": 83.393,
+                        "Actual Rows": 8621,
+                        "Actual Loops": 1,
+                        "Recheck Cond": "((dimensions @> '{\"s_OKVED2\": \"C\"}'::jsonb) AND (indicator_id = i.id))",
+                        "Rows Removed by Index Recheck": 0,
+                        "Exact Heap Blocks": 8613,
+                        "Lossy Heap Blocks": 0,
+                        "Shared Hit Blocks": 11165,
+                        "Shared Read Blocks": 0,
+                        "Shared Dirtied Blocks": 0,
+                        "Shared Written Blocks": 0,
+                        "Local Hit Blocks": 0,
+                        "Local Read Blocks": 0,
+                        "Local Dirtied Blocks": 0,
+                        "Local Written Blocks": 0,
+                        "Temp Read Blocks": 0,
+                        "Temp Written Blocks": 0,
+                        "Plans": [
+                          {
+                            "Node Type": "BitmapAnd",
+                            "Parent Relationship": "Outer",
+                            "Parallel Aware": false,
+                            "Async Capable": false,
+                            "Startup Cost": 10308.98,
+                            "Total Cost": 10308.98,
+                            "Plan Rows": 7209,
+                            "Plan Width": 0,
+                            "Actual Startup Time": 76.061,
+                            "Actual Total Time": 76.062,
+                            "Actual Rows": 0,
+                            "Actual Loops": 1,
+                            "Shared Hit Blocks": 2552,
+                            "Shared Read Blocks": 0,
+                            "Shared Dirtied Blocks": 0,
+                            "Shared Written Blocks": 0,
+                            "Local Hit Blocks": 0,
+                            "Local Read Blocks": 0,
+                            "Local Dirtied Blocks": 0,
+                            "Local Written Blocks": 0,
+                            "Temp Read Blocks": 0,
+                            "Temp Written Blocks": 0,
+                            "Plans": [
+                              {
+                                "Node Type": "Bitmap Index Scan",
+                                "Parent Relationship": "Member",
+                                "Parallel Aware": false,
+                                "Async Capable": false,
+                                "Index Name": "obs_dimensions_gin",
+                                "Startup Cost": 0.0,
+                                "Total Cost": 2534.09,
+                                "Plan Rows": 57673,
+                                "Plan Width": 0,
+                                "Actual Startup Time": 3.694,
+                                "Actual Total Time": 3.694,
+                                "Actual Rows": 8621,
+                                "Actual Loops": 1,
+                                "Index Cond": "(dimensions @> '{\"s_OKVED2\": \"C\"}'::jsonb)",
+                                "Shared Hit Blocks": 511,
+                                "Shared Read Blocks": 0,
+                                "Shared Dirtied Blocks": 0,
+                                "Shared Written Blocks": 0,
+                                "Local Hit Blocks": 0,
+                                "Local Read Blocks": 0,
+                                "Local Dirtied Blocks": 0,
+                                "Local Written Blocks": 0,
+                                "Temp Read Blocks": 0,
+                                "Temp Written Blocks": 0
+                              },
+                              {
+                                "Node Type": "Bitmap Index Scan",
+                                "Parent Relationship": "Member",
+                                "Parallel Aware": false,
+                                "Async Capable": false,
+                                "Index Name": "monitor_observation_indicator_id_30342364",
+                                "Startup Cost": 0.0,
+                                "Total Cost": 7758.42,
+                                "Plan Rows": 728265,
+                                "Plan Width": 0,
+                                "Actual Startup Time": 71.391,
+                                "Actual Total Time": 71.392,
+                                "Actual Rows": 2607785,
+                                "Actual Loops": 1,
+                                "Index Cond": "(indicator_id = i.id)",
+                                "Shared Hit Blocks": 2041,
+                                "Shared Read Blocks": 0,
+                                "Shared Dirtied Blocks": 0,
+                                "Shared Written Blocks": 0,
+                                "Local Hit Blocks": 0,
+                                "Local Read Blocks": 0,
+                                "Local Dirtied Blocks": 0,
+                                "Local Written Blocks": 0,
+                                "Temp Read Blocks": 0,
+                                "Temp Written Blocks": 0
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "Planning": {
+            "Shared Hit Blocks": 1,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          },
+          "Planning Time": 0.232,
+          "Triggers": [],
+          "Execution Time": 84.276
+        }
+      ]
+    }
+  },
+  "database_bytes": 7798372019
+}

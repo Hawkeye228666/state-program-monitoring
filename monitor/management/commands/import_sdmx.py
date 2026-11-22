@@ -14,11 +14,28 @@ class Command(BaseCommand):
             if options['program'] or options['manifest']:
                 from monitor.bulk_import import import_sources,load_manifest
                 from monitor.streaming import extract_sources,metadata
-                from monitor.models import MappingProfile
+                from monitor.models import MappingProfile,ImportRun
+                from django.db import connection
+                if options['manifest']:
+                    import hashlib,json
+                    expected=json.loads(Path(options['manifest']).read_text(encoding='utf-8')).get('archive_sha256')
+                    if expected:
+                        if len(options['files'])!=1:raise DataError('Manifest с контрольной суммой требует один исходный архив.')
+                        h=hashlib.sha256()
+                        with Path(options['files'][0]).open('rb') as stream:
+                            for chunk in iter(lambda:stream.read(1024*1024),b''):h.update(chunk)
+                        if h.hexdigest()!=expected:raise DataError('SHA256 архива не совпадает с manifest.')
                 sources=list(extract_sources(options['files']))
                 assignments=load_manifest(options['manifest']) if options['manifest'] else {metadata(s)['file_id']:options['program'] for s in sources}
                 profile=MappingProfile.objects.get(pk=options['profile']) if options['profile'] else None
-                run=import_sources(sources,assignments,profile=profile,report=lambda event:self.stdout.write(str(event)))
+                run=ImportRun.objects.create(filenames=[s.filename for s in sources])
+                tracker=connection.copy(alias='cli_import_progress')
+                def progress(event):
+                    import json
+                    with tracker.cursor() as cursor:cursor.execute('UPDATE monitor_importrun SET progress=%s::jsonb WHERE id=%s',[json.dumps(event),run.pk])
+                    self.stdout.write(str(event))
+                try:run=import_sources(sources,assignments,profile=profile,run=run,report=progress)
+                finally:tracker.close()
                 if options['manifest']:
                     import json
                     from monitor.models import RelatedSeries,Indicator

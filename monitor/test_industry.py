@@ -34,7 +34,11 @@ class IndustryTests(TestCase):
     def test_repeat_import_and_atomic_rollback(self):
         run=self.load();again=self.load();self.assertEqual((again.added,again.updated,again.skipped),(0,0,run.unique_count))
         before=Observation.objects.count()
-        with patch('monitor.bulk_import.rows',side_effect=DataError('Injected mid-run failure')):
+        first=next(rows(self.sources[0],metadata(self.sources[0])))
+        def interrupted(*args):
+            yield first
+            raise DataError('Injected failure after a staged observation')
+        with patch('monitor.bulk_import.rows',side_effect=interrupted):
             with self.assertRaises(DataError):self.load()
         self.assertEqual(Observation.objects.count(),before);self.assertEqual(ImportRun.objects.order_by('-pk').first().status,'error')
         self.assertEqual(self.load().added,0)
@@ -46,6 +50,11 @@ class IndustryTests(TestCase):
         with patch('monitor.bulk_import.rows',return_value=iter([one,bad])):
             with self.assertRaisesMessage(DataError,'Конфликтующие'):self.load([source])
         self.assertEqual(Observation.objects.count(),1)
+    def test_duplicate_uploaded_file_has_consistent_per_file_counts(self):
+        source=self.sources[0];run=self.load([source,source])
+        self.assertEqual(run.raw_count,28);self.assertEqual(run.unique_count,14)
+        self.assertEqual(sum(p['unique'] for p in run.details),14)
+        self.assertEqual(sum(p['duplicates'] for p in run.details),14)
     def test_multiple_year_files_extend_one_indicator(self):
         source=self.sources[0];info=metadata(source);a=list(rows(source,info))[0];b=copy.deepcopy(a)
         b['period']=period_info('2010','значение показателя за год')
@@ -85,6 +94,16 @@ class IndustryTests(TestCase):
         assignments={k:'other' for k in self.assignments}
         with self.assertRaisesMessage(DataError,'уже относится'):import_sources(self.sources,assignments)
         self.assertEqual(Indicator.objects.filter(program=self.program).count(),4)
+    def test_missing_dictionary_preserves_unknown_codes(self):
+        source=self.sources[0];info=metadata(source);info['codelists'].pop('s_OKFS')
+        rules=validate_profile(info);self.assertIsNone(rules['s_OKFS']['codelist'])
+        row=next(rows(source,info,rules));self.assertEqual(row['dimension_states']['s_OKFS'],'unknown')
+        self.assertTrue(row['dimensions']['s_OKFS'])
+    def test_changed_source_after_preview_is_rejected(self):
+        source=self.sources[0]
+        with source.path.open('ab') as f:f.write(b'<!-- changed after preview -->')
+        with self.assertRaisesMessage(DataError,'SHA256'):self.load([source])
+        self.assertFalse(Observation.objects.exists())
     def test_full_period_key_and_comparability(self):
         annual=period_info('2014','значение показателя за год');dec=period_info('2014','январь-декабрь');march=period_info('2014','январь-март')
         self.assertNotEqual(annual['code'],dec['code']);self.assertNotEqual(dec['code'],march['code'])
