@@ -9,7 +9,7 @@ class Command(BaseCommand):
         read = Permission.objects.filter(content_type__app_label='monitor', codename__startswith='view_')
         role_permissions = {
             'Аналитик': list(read),
-            'Оператор загрузки': list(read) + list(Permission.objects.filter(content_type__app_label='monitor', codename='add_importrun')),
+            'Оператор загрузки': list(read) + list(Permission.objects.filter(content_type__app_label='monitor', codename__in=['add_importrun','add_program','change_program'])),
             'Администратор': list(Permission.objects.filter(content_type__app_label__in=['monitor', 'auth'])),
         }
         for name, permissions in role_permissions.items():

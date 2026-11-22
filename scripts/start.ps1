@@ -20,7 +20,7 @@ Invoke-Docker compose config --quiet
 Invoke-Docker compose up -d --wait db
 Write-Host 'Synchronizing the application database role with .env (existing data is preserved).'
 Invoke-Docker compose exec -T db sh /docker-entrypoint-initdb.d/10-app.sh
-Invoke-Docker compose up --build -d --wait app
+Invoke-Docker compose up --build -d --wait app worker
 if ($SkipAdmin) {
     Invoke-Docker compose exec -T app python manage.py bootstrap_postgres --load-if-empty
 } else {

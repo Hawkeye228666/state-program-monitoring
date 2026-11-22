@@ -11,7 +11,7 @@ backups
 transfer
 deliverables
 presentation
-materials
+materials/*
 docs
 __pycache__
 *.py[cod]
@@ -29,3 +29,14 @@ data/staging
 *.sqlite-*
 *.sqlite3-*
 *.db
+
+data/jobs
+data/sources/*
+!tests/fixtures/industry-fragments.zip
+!materials/Материал для задания 3.zip
+!data/sources/0c06b6ad35c40e9f5b272aedb74ac8e5e1c53e460ad7d328c7c23df4976e12eb.sdmx
+!data/sources/5f71782a34d4f220fa07784055e5cdf3544afe0ba358d0a2d4fc52cb0af432d5.sdmx
+!data/sources/68a520d619afd527401bdd0b87cc7b2cd61c1feaadc7271e5039ed0a9b6a29fb.sdmx
+!data/sources/cbadf8765b52cfada2c52e3dfe8a70c8c01c37365e01b5fc36d2772fb78f953d.sdmx
+!data/sources/da571c201b2cc4664b62301a27615e0abf1ba68efa055eb82a7e0f65d6c48552.sdmx
+!data/sources/f45cce6d3e95673df136df67ae0cc45045a683b342ed0d2db98f3e9c1748e6c8.sdmx

@@ -14,9 +14,9 @@ class NativeDecimalMigrationTests(TransactionTestCase):
             source=apps.get_model('monitor','SourceFile').objects.create(sha256='a'*64,filename='x',original_path='x',size=0,header_id='x',dataset_id='x')
             run=apps.get_model('monitor','ImportRun').objects.create(status='success')
             row=apps.get_model('monitor','Observation').objects.create(indicator=i,territory=t,period=period,source=source,last_import=run,dimension_key='a'*64,numeric_text='111.7',raw_value='111,7',dimensions={'s_OKFS':'200'})
-            executor=MigrationExecutor(connection);executor.migrate([('monitor','0003_native_decimal')])
+            executor=MigrationExecutor(connection);executor.migrate([('monitor','0006_period_windows')])
             from monitor.models import Observation,Program
             new=Observation.objects.get(pk=row.pk)
             self.assertEqual(new.numeric_value,Decimal('111.7'));self.assertEqual(new.dimensions,{'s_OKFS':'200'})
             self.assertEqual(Program.objects.get(pk=p.pk).summary,'User edit')
-        finally:MigrationExecutor(connection).migrate([('monitor','0003_native_decimal')])
+        finally:MigrationExecutor(connection).migrate([('monitor','0006_period_windows')])

@@ -1,3 +1,7 @@
+def response_bytes(response):
+    if not hasattr(response,"_test_bytes"):response._test_bytes=b"".join(response.streaming_content) if response.streaming else response.content
+    return response._test_bytes
+
 """Chart arithmetic, comparability and use of the shared real-data selection."""
 from decimal import Decimal
 from types import SimpleNamespace as Obj
@@ -14,9 +18,9 @@ def row(code='r1', value='1', period='2014', indicator='x', unit='процент
     if okfs is not None: dimensions['s_OKFS'] = okfs
     dimensions.update(extra or {})
     return Obj(territory=Obj(code=code, name='Регион '+code, kind=kind),
-               period=Obj(code=period, label=period, order=period),
+               period=Obj(code=period, label=period, order=period, kind="quarter" if "-Q" in period else "year"),
                indicator=Obj(file_id=indicator, name='Показатель '+indicator, unit=unit),
-               indicator_id=indicator, dimensions=dimensions,
+               indicator_id=indicator, dimensions=dimensions, dimension_states={},
                dimension_labels={'s_OKFS': {'12': 'Федеральная собственность', '199': 'ВСЕГО (по всем формам собственности)', '200': 'ВСЕГО'}.get(okfs, okfs)},
                source=Obj(metadata={'dimension_codelists': {'s_OKFS': {'12': 'Федеральная собственность', '199': 'ВСЕГО (по всем формам собственности)', '200': 'ВСЕГО'}}}),
                number=Decimal(value) if value is not None else None,
@@ -194,6 +198,6 @@ class RealDataChartSelectionTests(TestCase):
         self.assertEqual(json['analytics'], html.context['analytics'])
         self.assertEqual(json['analytics']['selected_count'], 10)
         csv_response = self.client.get('/explore/?'+query+'&format=csv')
-        self.assertEqual(len(list(csv.reader(io.StringIO(csv_response.content.decode('utf-8-sig')), delimiter=';')))-1, 10)
+        self.assertEqual(len(list(csv.reader(io.StringIO(response_bytes(csv_response).decode('utf-8-sig')), delimiter=';')))-1, 10)
         scatter_response = self.client.get('/explore/?program=housing&mode=all&level=subject&periods=2014&scatter_x=43512&scatter_y=43537')
         self.assertContains(scatter_response, 'id="scatter-chart"')

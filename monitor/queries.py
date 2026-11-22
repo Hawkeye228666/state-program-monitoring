@@ -1,5 +1,6 @@
 """Единая выборка для HTML, CSV и графиков. Агрегация значений не выполняется."""
 from collections import defaultdict
+from django.db.models import Q,F
 from .models import Observation, Dimension
 from .sdmx import DataError
 from .dimensions import dimension_info
@@ -9,8 +10,8 @@ def select_rows(program,params):
     if mode not in ('one','all'):raise DataError('Неизвестный режим запроса.')
     indicators=program.indicators.order_by('file_id')
     chosen=params.get('indicator') or str(indicators.values_list('file_id',flat=True).first() or '')
-    if not indicators.exists():return [],chosen,mode
-    qs=Observation.objects.filter(indicator__program=program).select_related('indicator','territory','period','source')
+    if not indicators.exists():return Observation.objects.none(),chosen,mode
+    qs=Observation.objects.filter(indicator__program=program).select_related('indicator','territory','period').defer('indicator__metadata','indicator__methodology','indicator__forms').prefetch_related('source')
     if mode=='one':
         if not indicators.filter(file_id=chosen).exists():raise DataError('Показатель не относится к выбранной программе.')
         qs=qs.filter(indicator__file_id=chosen)
@@ -22,7 +23,6 @@ def select_rows(program,params):
     dims=Dimension.objects.filter(indicator__program=program)
     if mode=='one':dims=dims.filter(indicator__file_id=chosen)
     allowed=set(dims.values_list('code',flat=True))
-    okfs_values=[]
     for k in params:
         if k.startswith('dim_'):
             code=k[4:]
@@ -30,15 +30,20 @@ def select_rows(program,params):
                 if params.getlist(k):raise DataError('Измерение не относится к выбранным показателям: '+code)
             else:
                 vs=[v for v in params.getlist(k) if v!='']
-                if code=='s_OKFS' and any(v in ('__absent__','__missing__','__unknown__') for v in vs):
-                    okfs_values=vs
-                elif vs:qs=qs.filter(**{'dimensions__'+code+'__in':vs})
+                if vs:
+                    condition=Q(pk__in=[])
+                    for value in vs:
+                        if value=='__absent__':part=~Q(dimensions__has_key=code)
+                        elif value=='__missing__':part=Q(**{'dimensions__contains':{code:''}})
+                        elif value=='__unknown__':part=Q(dimension_states__contains={code:'unknown'}) | (Q(dimension_states={}) & ~Q(dimensions__contains={code:''}) & Q(**{'dimension_labels__'+code:F('dimensions__'+code)}))
+                        elif value=='__aggregate__':part=Q(dimension_states__contains={code:'aggregate'})
+                        else:part=Q(dimensions__contains={code:value})
+                        condition |= part
+                    qs=qs.filter(condition)
     sort=params.get('sort','territory')
-    rows=list(qs.order_by(*SORTS.get(sort,SORTS['territory'])))
-    if okfs_values:
-        rows=[o for o in rows if o.dimensions.get('s_OKFS') in okfs_values or '__'+dimension_info(o)['state']+'__' in okfs_values]
+    rows=qs.order_by(*SORTS.get(sort,SORTS['territory']))
     if sort in ('value','-value'):
-        rows=sorted([o for o in rows if o.number is not None],key=lambda o:o.number,reverse=sort=='-value')+[o for o in rows if o.number is None]
+        rows=qs.order_by(F('numeric_value').desc(nulls_last=True) if sort=='-value' else F('numeric_value').asc(nulls_last=True),'pk')
     return rows,chosen,mode
 
 def chart_data(rows,bar_period=''):
@@ -46,7 +51,7 @@ def chart_data(rows,bar_period=''):
     if not rows:result['reason']='В выборке нет данных. Измените периоды, территории или измерения.';return result
     if len({o.indicator_id for o in rows})!=1:result['reason']='Для графика выберите режим «Один показатель». Показатели с разными единицами не объединяются.';return result
     if len({o.territory.kind for o in rows})!=1:result['reason']='Выберите один уровень территории. Страна, округа, субъекты и города не смешиваются на одном графике.';return result
-    period_kinds={'quarter' if '-Q' in o.period.code else 'year' for o in rows}
+    period_kinds={(o.period.kind,int(o.period.start.month) if o.period.start else 0,int(o.period.end.month) if o.period.end else 0) if o.period.kind=='cumulative' else ('quarter' if '-Q' in o.period.code else 'year') for o in rows}
     if len(period_kinds)!=1:result['reason']='Годовые и квартальные данные не объединяются в один график.';return result
     okfs={o.dimensions.get('s_OKFS') for o in rows}
     if okfs & {'199','200'} and len(okfs)>1:result['reason']='Выберите одну категорию ОКФС: итоги 199 и 200 и отдельные формы собственности не смешиваются.';return result
@@ -57,7 +62,7 @@ def chart_data(rows,bar_period=''):
     for o in rows:
         extras=tuple(sorted((k,v) for k,v in o.dimensions.items() if k not in ('PERIOD','EI')))
         key=(o.territory.code,extras)
-        extra_label='; '.join(o.dimension_labels.get(k,v) for k,v in extras)
+        extra_label='; '.join(o.dimension_labels.get(k,v)+' ['+str(v)+']' for k,v in extras)
         names[key]=o.territory.name+(' / '+extra_label if extra_label else '')
         if o.period.code in groups[key]:result['reason']='Несколько значений в одной точке. Уточните измерения.';return result
         groups[key][o.period.code]=o

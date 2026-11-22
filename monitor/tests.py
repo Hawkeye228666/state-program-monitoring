@@ -1,3 +1,7 @@
+def response_bytes(response):
+    if not hasattr(response,"_test_bytes"):response._test_bytes=b"".join(response.streaming_content) if response.streaming else response.content
+    return response._test_bytes
+
 import csv, io, json, tempfile, zipfile
 from decimal import Decimal
 from pathlib import Path
@@ -146,15 +150,15 @@ class FullProjectTests(TestCase):
         q='program=housing&mode=one&indicator=43537&regions=643&periods=2012&periods=2013'
         html=self.client.get('/explore/?'+q);self.assertEqual(html.status_code,200);self.assertEqual(html.context['total'],2)
         api=self.client.get('/explore/?'+q+'&format=json').json();self.assertEqual(api['count'],2)
-        csvres=self.client.get('/explore/?'+q+'&format=csv');self.assertTrue(csvres.content.startswith(b'\xef\xbb\xbf'))
-        cr=list(csv.reader(io.StringIO(csvres.content.decode('utf-8-sig')),delimiter=';'))
+        csvres=self.client.get('/explore/?'+q+'&format=csv');self.assertTrue(response_bytes(csvres).startswith(b'\xef\xbb\xbf'))
+        cr=list(csv.reader(io.StringIO(response_bytes(csvres).decode('utf-8-sig')),delimiter=';'))
         self.assertEqual([x[8] for x in cr[1:]],[x['value'] for x in api['rows']])
         self.assertEqual(api['chart']['line']['datasets'][0]['data'],['65.74','70.5'])
         self.assertEqual(html.context['chart'],api['chart'])
         q2='program=housing&mode=one&indicator=43512&submitted=1'
         h=self.client.get('/explore/?'+q2);self.assertEqual(len(h.context['page']),50)
         export=self.client.get('/explore/?'+q2+'&page=2&format=csv')
-        self.assertEqual(len(list(csv.reader(io.StringIO(export.content.decode('utf-8-sig')),delimiter=';')))-1,1304)
+        self.assertEqual(len(list(csv.reader(io.StringIO(response_bytes(export).decode('utf-8-sig')),delimiter=';')))-1,1304)
     def test_empty_results_and_chart_guards(self):
         r=self.client.get('/explore/?program=housing&mode=all&regions=missing');self.assertEqual(r.status_code,200);self.assertContains(r,'нет наблюдений')
         rows,_,_=select_rows(Program.objects.get(slug='science'),QueryDict('mode=one&indicator=44198&regions=643'))

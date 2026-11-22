@@ -1,3 +1,7 @@
+def response_bytes(response):
+    if not hasattr(response,"_test_bytes"):response._test_bytes=b"".join(response.streaming_content) if response.streaming else response.content
+    return response._test_bytes
+
 import csv
 import io
 import tempfile
@@ -99,7 +103,7 @@ class AccessApiScenarioTests(TestCase):
         table=self.client.get('/explore/?'+q)
         self.assertEqual(table.context['total'],api['count'])
         exported=self.client.get('/explore/?'+q+'&format=csv')
-        records=list(csv.reader(io.StringIO(exported.content.decode('utf-8-sig')),delimiter=';'))
+        records=list(csv.reader(io.StringIO(response_bytes(exported).decode('utf-8-sig')),delimiter=';'))
         self.assertEqual([r[8] for r in records[1:]],[r['value'] for r in api['results']])
         self.assertEqual({r[-3] for r in records[1:]},{'200'})
         self.assertNotContains(table,'ВСЕГО (по всем формам собственности)')
@@ -137,7 +141,7 @@ class AccessApiScenarioTests(TestCase):
         self.assertFalse(data['dumbbell']['reason']); self.assertGreater(data['dumbbell']['n'],3)
         self.assertFalse(data['boxplot']['reason']); self.assertGreater(data['boxplot']['n'],3)
         response=client.get('/explore/?'+q+'&format=csv')
-        self.assertGreater(len(response.content),1000)
+        self.assertGreater(len(response_bytes(response)),1000)
         client.get('/accounts/login/')
         self.assertEqual(client.post('/accounts/logout/',{'csrfmiddlewaretoken':client.cookies['csrftoken'].value}).status_code,302)
         self.assertEqual(client.get('/explore/').status_code,302)

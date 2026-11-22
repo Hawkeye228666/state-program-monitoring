@@ -2,6 +2,7 @@ import json
 from decimal import Decimal
 from django.conf import settings
 from django.db import models
+from django.contrib.postgres.indexes import GinIndex
 
 
 class Program(models.Model):
@@ -35,6 +36,11 @@ class Period(models.Model):
     label = models.CharField(max_length=160)
     year = models.IntegerField()
     order = models.CharField(max_length=100,db_index=True)
+    kind = models.CharField(max_length=20,default='year')
+    start = models.DateField(null=True)
+    end = models.DateField(null=True)
+    cumulative = models.BooleanField(default=False)
+    original = models.CharField(max_length=160,blank=True)
     class Meta: ordering=['order']
 
 class Dimension(models.Model):
@@ -74,6 +80,10 @@ class ImportRun(models.Model):
     errors = models.PositiveIntegerField(default=0)
     details = models.JSONField(default=list)
     message = models.TextField(blank=True)
+    raw_count = models.BigIntegerField(default=0)
+    unique_count = models.BigIntegerField(default=0)
+    rejected = models.BigIntegerField(default=0)
+    progress = models.JSONField(default=dict)
     class Meta: ordering=['-created']
 
 class Observation(models.Model):
@@ -87,11 +97,12 @@ class Observation(models.Model):
     raw_value = models.TextField(blank=True)
     status = models.JSONField(default=dict)
     attributes = models.JSONField(default=dict)
+    dimension_states = models.JSONField(default=dict)
     source = models.ForeignKey(SourceFile,on_delete=models.PROTECT)
     last_import = models.ForeignKey(ImportRun,on_delete=models.PROTECT)
     class Meta:
         constraints=[models.UniqueConstraint(fields=['indicator','territory','period','dimension_key'],name='unique_observation_full_key')]
-        indexes=[models.Index(fields=['indicator','period','territory']),models.Index(fields=['territory','period'])]
+        indexes=[models.Index(fields=['indicator','period','territory']),models.Index(fields=['territory','period']),GinIndex(fields=['dimensions'],name='obs_dimensions_gin',opclasses=['jsonb_path_ops']),GinIndex(fields=['dimension_states'],name='obs_states_gin',opclasses=['jsonb_path_ops'])]
     @property
     def number(self): return self.numeric_value
     @property
@@ -103,4 +114,45 @@ class Observation(models.Model):
     def display(self): return self.raw_value if self.raw_value else 'нет данных'
     @property
     def dimensions_display(self):
-        return '; '.join(f'{k}: {v}' for k,v in self.dimension_labels.items())
+        return '; '.join(f'{k}: {v} [{self.dimensions.get(k, "")}]' for k,v in self.dimension_labels.items())
+
+
+class MappingProfile(models.Model):
+    name = models.CharField(max_length=160,unique=True)
+    rules = models.JSONField(default=dict)
+    confirmed = models.BooleanField(default=False)
+    def __str__(self): return self.name
+
+
+class ClassifierSnapshot(models.Model):
+    source = models.ForeignKey(SourceFile,on_delete=models.CASCADE,related_name='dictionaries')
+    concept = models.CharField(max_length=80)
+    identity = models.CharField(max_length=120)
+    edition = models.CharField(max_length=160,null=True,blank=True)
+    edition_evidence = models.TextField(blank=True)
+    digest = models.CharField(max_length=64)
+    codes = models.JSONField(default=dict)
+    class Meta:
+        constraints=[models.UniqueConstraint(fields=['source','concept'],name='unique_source_dictionary')]
+
+
+class RelatedSeries(models.Model):
+    previous = models.ForeignKey(Indicator,on_delete=models.CASCADE,related_name='successors')
+    following = models.ForeignKey(Indicator,on_delete=models.CASCADE,related_name='predecessors')
+    explanation = models.TextField()
+    class Meta:
+        constraints=[models.UniqueConstraint(fields=['previous','following'],name='unique_related_series')]
+
+
+class ImportJob(models.Model):
+    import uuid
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+    actor = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
+    state = models.CharField(max_length=24,default='preview_pending',db_index=True)
+    created = models.DateTimeField(auto_now_add=True)
+    payload = models.JSONField(default=dict)
+    preview = models.JSONField(default=list)
+    assignments = models.JSONField(default=dict)
+    profile = models.ForeignKey(MappingProfile,on_delete=models.PROTECT,null=True,blank=True)
+    run = models.ForeignKey(ImportRun,on_delete=models.PROTECT,null=True)
+    message = models.TextField(blank=True)

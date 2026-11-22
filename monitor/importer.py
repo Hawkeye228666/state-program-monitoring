@@ -11,6 +11,8 @@ def import_documents(documents, assignments=None, actor=None):
     run=ImportRun.objects.create(actor=actor,filenames=[d.filename for d in documents])
     try:
         with transaction.atomic():
+            from django.db import connection
+            with connection.cursor() as cursor:cursor.execute('SELECT pg_advisory_xact_lock(7291363)')
             seed_programs()
             for d in documents:
                 slug=assignments.get(d.sha256,MAPPING.get(d.file_id,''))
@@ -29,8 +31,8 @@ def import_documents(documents, assignments=None, actor=None):
                     if audit_key in d.metadata and source.metadata.get(audit_key)!=d.metadata[audit_key]:
                         source.metadata[audit_key]=d.metadata[audit_key]; changed=True
                 if changed: source.save(update_fields=['metadata'])
-                if d.sha256 in assignments and indicator.program_id!=program.pk:
-                    indicator.program=program; indicator.save(update_fields=['program'])
+                if indicator.program_id!=program.pk:
+                    raise DataError('Показатель уже относится к другой программе. Измените привязку явно в метаданных, импорт её не переносит.')
                 for code,vs in d.metadata['dimension_values'].items():
                     dim,_=Dimension.objects.get_or_create(indicator=indicator,code=code,defaults={'name':d.dimension_names.get(code,code),'role':'attribute' if code in d.metadata['attributes'] else 'key'})
                     for v in vs:DimensionValue.objects.get_or_create(dimension=dim,code=v,defaults={'label':d.codelists.get(code,{}).get(v,v)})
@@ -40,7 +42,10 @@ def import_documents(documents, assignments=None, actor=None):
                     if code not in territories:
                         territories[code],_=Territory.objects.get_or_create(code=code,defaults={'name':row['territory_name'],'kind':territory_kind(code,row['territory_name'])})
                     pc=row['period']
-                    if pc not in periods:periods[pc],_=Period.objects.get_or_create(code=pc,defaults={'label':row['period_label'],'year':row['year'],'order':pc[:4]+('-00' if len(pc)==4 else pc[4:])})
+                    if pc not in periods:
+                        from .streaming import period_info
+                        period=period_info(pc,row['dimensions'].get('PERIOD',''));period.pop('code');period['label']=row['period_label']
+                        periods[pc],_=Period.objects.get_or_create(code=pc,defaults=period)
                 existing={(o.territory.code,o.period.code,o.dimension_key):o for o in Observation.objects.filter(indicator=indicator).select_related('territory','period')}
                 counts={'added':0,'updated':0,'skipped':0,'errors':0}
                 for row in d.rows:

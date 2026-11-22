@@ -15,6 +15,9 @@ def dimension_info(observation, code='s_OKFS'):
     source_metadata=observation.source.metadata or {}
     codelists=source_metadata.get('dimension_codelists',{})
     label=observation.dimension_labels.get(code,raw)
+    state=(observation.dimension_states or {}).get(code)
+    if state in ('known','aggregate','unknown'):
+        return {'state':state,'code':raw,'label':label,'diagnostic':'Код отсутствует в справочнике источника.' if state=='unknown' else ''}
     # Старые базы не имели копии справочника в SourceFile.metadata. Исходная
     # подпись подтверждает известный код; повторный импорт дополняет аудит.
     known=(raw in codelists[code]) if code in codelists else label!=raw

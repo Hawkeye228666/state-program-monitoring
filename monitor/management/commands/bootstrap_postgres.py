@@ -15,7 +15,7 @@ class Command(BaseCommand):
         call_command('wait_for_db');call_command('migrate',interactive=False);call_command('setup_roles')
         if options['load_data'] or (options['load_if_empty'] and not Observation.objects.exists()):
             files=sorted((settings.BASE_DIR/'data/sources').glob('*.sdmx'))
-            if len(files)!=6:raise CommandError('Expected six original SDMX files.')
+            if not files:raise CommandError('No SDMX files in data/sources.')
             call_command('import_sdmx',*[str(f) for f in files])
             self.stdout.write('Observations: '+str(Observation.objects.count()))
         if options['create_admin'] and not get_user_model().objects.filter(is_superuser=True,is_active=True).exists():
